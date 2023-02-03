@@ -5,6 +5,7 @@ public class Usuario {
     private String password;
     private short prioridad;
     private char activo;
+    private String email;
     
     public Usuario() {
     }
@@ -15,6 +16,13 @@ public class Usuario {
         this.prioridad = prioridad;
         this.activo = activo;
     }
+    //AUX -> EVC1
+    public Usuario(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
+
 
     public String getUsername() {
         return username;
@@ -48,5 +56,12 @@ public class Usuario {
         this.activo = activo;
     }
 
+    public String getEmail(){
+        return email;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
+    }
     
 }
