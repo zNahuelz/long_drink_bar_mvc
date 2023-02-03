@@ -3,17 +3,17 @@ package com.longdrinkbar.long_drink_bar_mvc.model;
 public class Usuario {
     private String username;
     private String password;
-    private short prioridad;
+    private short permiso; //Nivel de permiso del usuario. 0-1-/2?
     private char activo;
     private String email;
     
     public Usuario() {
     }
 
-    public Usuario(String username, String password, short prioridad, char activo) {
+    public Usuario(String username, String password, short permiso, char activo) {
         this.username = username;
         this.password = password;
-        this.prioridad = prioridad;
+        this.permiso = permiso;
         this.activo = activo;
     }
     //AUX -> EVC1
@@ -40,12 +40,12 @@ public class Usuario {
         this.password = password;
     }
 
-    public short getPrioridad() {
-        return prioridad;
+    public short getPermiso() {
+        return permiso;
     }
 
-    public void setPrioridad(short prioridad) {
-        this.prioridad = prioridad;
+    public void setPermiso(short permiso) {
+        this.permiso = permiso;
     }
 
     public char getActivo() {

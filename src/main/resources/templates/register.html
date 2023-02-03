@@ -15,28 +15,26 @@
           <img class="mb-4" th:src="@{/images/cocktail.svg}" alt="" width="72" height="57">
           <h1 class="h3 mb-3 fw-normal">Registro de Usuario</h1>
             <!---Usuario(DNI), nombre, apellido, email, passw-->
-            
           <div class="form-floating">
-            <input type="text" class="form-control" th:id="nombre" th:placeholder="nombre" th:name="nombre">
+            <input type="text" class="form-control" id="nombre" name="nombre">
             <label for="floatingInput">Nombre</label>
           </div>
           <div class="form-floating mt-2">
-            <input type="text" class="form-control" th:id="apellido" th:placeholder="apellido" th:name="apellido">
+            <input type="text" class="form-control" id="apellido" name="apellido">
             <label for="floatingInput">Apellidos</label>
           </div>
           <div class="form-floating mt-2">
-            <input type="text" class="form-control" th:id="dni" th:placeholder="dni" th:name="dni">
+            <input type="number" class="form-control" id="dni" name="dni">
             <label for="floatingInput">DNI</label>
           </div>
           <div class="form-floating mt-2">
-            <input type="email" class="form-control" th:id="email" th:placeholder="email" th:name="email">
+            <input type="email" class="form-control" id="email" name="email">
             <label for="floatingInput">E-Mail</label>
           </div>
           <div class="form-floating mt-2">
-            <input type="password" class="form-control" th:id="passw" th:placeholder="passw" th:name="passw">
+            <input type="password" class="form-control" id="passw" name="passw">
             <label for="floatingPassword">Contraseña</label>
           </div>
-          
           <div class="mt-2">
             <button class="w-100 btn btn-lg btn-primary" type="submit">Continuar</button>
             <input class="w-100 btn btn-lg btn btn-secondary mt-2" type="reset" value="Limpiar">
