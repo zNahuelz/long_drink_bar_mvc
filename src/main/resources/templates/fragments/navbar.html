@@ -11,7 +11,7 @@
 <body>
     <section th:fragment="barra-superior">
         <!---CONTENIDO DE NAVBAR GENERICA PARA TODAS PÁGINAS QUE NO REQUIERAN LOGIN.-->
-        <nav class="navbar navbar-expand-lg bg-warning" aria-label="Thirteenth navbar example">
+        <nav class="navbar navbar-expand-lg bg-primary" aria-label="Thirteenth navbar example">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -21,26 +21,26 @@
           <a class="navbar-brand col-lg-3 me-0" href="#">LBD / LOGOTIPO</a>
           <ul class="navbar-nav col-lg-6 justify-content-lg-center">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+              <a class="nav-link active text-white" aria-current="page" href="#">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Acerca De</a>
+              <a class="nav-link text-white" th:href="@{acercade}">Acerca De</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link">Cursos</a>
+              <a class="nav-link text-white">Cursos</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Desplegable</a>
+              <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown" aria-expanded="false">Desplegable</a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item text-white" href="#">Action</a></li>
+                <li><a class="dropdown-item text-white" href="#">Another action</a></li>
+                <li><a class="dropdown-item text-white" href="#">Something else here</a></li>
               </ul>
             </li>
           </ul>
           <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2">Iniciar Sesión</button>
-            <button type="button" class="btn btn-primary">Registrarse</button>
+            <button type="button" class="btn btn-outline-danger me-2">Iniciar Sesión</button>
+            <button type="button" class="btn btn-danger">Registrarse</button>
           </div>
           
         </div>
