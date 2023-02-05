@@ -4,14 +4,16 @@ public class Alumno {
     private String nombre;
     private String apellido;
     private String dni;
+    private String foto;
     
     public Alumno() {
     }
 
-    public Alumno(String nombre, String apellido, String dni) {
+    public Alumno(String nombre, String apellido, String dni, String foto) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
+        this.foto = foto;
     }
 
     public String getNombre() {
@@ -36,6 +38,14 @@ public class Alumno {
 
     public void setDni(String dni) {
         this.dni = dni;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     
