@@ -1,0 +1,8 @@
+.form{
+    width: 40%;
+    margin: 30px auto;
+}
+
+.btn, label{
+    margin-top: 20px;
+}

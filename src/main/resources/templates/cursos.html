@@ -11,6 +11,13 @@
 <body>
     <section th:replace="./fragments/navbar"></section>
     <br>
+    <div th:if="${usuario.email != 'nombre@gmail.com' || usuario.password != '123456'}">
+        <div th:replace="./fragments/mensaje-mal-login :: mensaje-mal-login"></div>
+    </div>
+    <div th:if="${usuario.email == 'nombre@gmail.com' && usuario.password == '123456'}">
+        <h1>Cursos</h1>
+        <!--Falta parte de Muñoz -->
+    </div>
     <section th:replace="./fragments/footer"></section>
     <script src="/src/main/resources/static/js/bootstrap.js"></script>
 </body>
