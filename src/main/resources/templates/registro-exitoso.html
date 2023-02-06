@@ -32,7 +32,7 @@
                 <li class="d-flex gap-4">
                     <div th:text="'CONTRASEÑA: '+${passw}" style="display: none"></div>
                 </li>
-                <li class="d-flex gap-2"><button  type="button" class="btn btn-lg btn-primary w-100" data-bs-dismiss="modal">Iniciar Sesión</button></li>
+                <li class="d-flex gap-2"><a th:href="@{login}"><button  type="button" class="btn btn-lg btn-primary w-100 text-center" data-bs-dismiss="modal">Iniciar Sesión</button></a></li>
               </ul>
             </div>
           </div>

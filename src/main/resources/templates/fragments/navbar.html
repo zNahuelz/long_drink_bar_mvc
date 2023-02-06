@@ -21,7 +21,7 @@
           <a class="navbar-brand col-lg-3 me-0" href="#">LBD / LOGOTIPO</a>
           <ul class="navbar-nav col-lg-6 justify-content-lg-center">
             <li class="nav-item">
-              <a class="nav-link active text-white" aria-current="page" href="#">Inicio</a>
+              <a class="nav-link active text-white" aria-current="page" th:href="@{/}">Inicio</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-white" th:href="@{acercade}">Acerca De</a>
@@ -40,7 +40,7 @@
           </ul>
           <div class="col-md-3 text-end">
             <a th:href="@{login}"><button type="button" class="btn btn-outline-danger me-2">Iniciar Sesión</button></a>
-            <button type="button" class="btn btn-danger">Registrarse</button>
+            <a th:href="@{register}"><button type="button" class="btn btn-danger">Registrarse</button></a>
           </div>
           
         </div>
