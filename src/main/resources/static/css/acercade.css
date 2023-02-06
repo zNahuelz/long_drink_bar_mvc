@@ -41,6 +41,10 @@ body{
     margin-bottom: 30px;
 }
 
+.listado-cartas div:first-child{
+    margin-left: 50px;
+}
+
 .redes-sociales-contenedor{
     margin-top: 50px;
 }
