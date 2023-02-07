@@ -21,7 +21,7 @@ public class LoginController {
         user.setEmail(correo);
         user.setPassword(contra);
         m.addAttribute("usuario", user);
-        m.addAttribute("titulo","Login");
-        return "cursos";
+        m.addAttribute("titulo","Cursos de nuestra institución");
+        return "cursos-login";
     }
 }

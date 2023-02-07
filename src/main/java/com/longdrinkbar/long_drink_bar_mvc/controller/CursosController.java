@@ -4,8 +4,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class CursosController {
-    @RequestMapping("/cursos")
-    public String cursos(Model m){
+    @RequestMapping(value="/cursos")
+    public String cursos(Model model){
+        model.addAttribute("macerados", "Macerados");
+        model.addAttribute("desh", "Deshidratados");
+        model.addAttribute("Pisco", "Cocteleria con Pisco");
+        model.addAttribute("titulo", "Cursos de nuestra institución");
         return "cursos";
     }
 }
