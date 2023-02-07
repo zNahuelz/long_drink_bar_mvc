@@ -18,7 +18,7 @@ public class RegisterController {
         return "register";
     }
     //POST
-    //@RequestParam(name="usuario") String usuario,
+    
     @PostMapping("/register")
     public String regExitoso(Model m, 
     @RequestParam(name="dni") String dni, 
