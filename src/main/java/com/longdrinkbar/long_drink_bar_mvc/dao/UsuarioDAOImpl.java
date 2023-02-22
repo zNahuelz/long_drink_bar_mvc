@@ -28,14 +28,27 @@ public class UsuarioDAOImpl implements IUsuarioDAO{
     @Override
     @Transactional
     public void registrar(Usuario usr) {
-        em.persist(usr);
+        if(usr.getId()!=null && usr.getId()>0){
+            em.merge(usr);
+        }
+        else{
+            em.persist(usr);
+        }
+        
     }
 
+    //METODO PARA ACTUALIZAR
     @Override
-    @Transactional(readOnly = true)
-    @SuppressWarnings("unchecked")
-    public List<Usuario> buscarUsr(String dni) {
-        return em.createQuery("from Usuario where dni=:dni;").getResultList();
+    @Transactional
+    public Usuario editarUsr(Long id) {
+        return em.find(Usuario.class,id);
+    }
+
+    //METODO PARA ELIMINAR
+    @Override
+    @Transactional
+    public void eliminarUsr(Long id) {
+        em.remove(editarUsr(id));
     }
     
 }

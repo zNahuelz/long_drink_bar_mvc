@@ -28,7 +28,10 @@ public class RegisterController {
         m.addAttribute("defaultP",1);
         m.addAttribute("defaultAct",1);
         usrDAO.registrar(usr);
+        m.addAttribute("verUsuario", usr);
         return "registro-exitoso";
     }
+
+    //GET Registro exitoso.
 
 }

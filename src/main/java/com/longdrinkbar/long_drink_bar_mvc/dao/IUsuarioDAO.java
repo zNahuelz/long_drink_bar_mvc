@@ -9,10 +9,10 @@ public interface IUsuarioDAO {
 
     //Listar.
     public List<Usuario> listarUsuarios();
-
     //Registrar usuario.
     public void registrar(Usuario usr);
-
-    //Buscar por usr:
-    public List<Usuario> buscarUsr(String dni);
+    //Editar usuario.
+    public Usuario editarUsr(Long id);
+    //Eliminar usuario. -> Deberia marcar estado a 0.
+    public void eliminarUsr(Long id);
 }
