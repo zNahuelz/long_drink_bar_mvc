@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.longdrinkbar.long_drink_bar_mvc.model.Usuario;
+import com.longdrinkbar.long_drink_bar_mvc.entity.Usuario;
 @Controller
 public class LoginController {
     @GetMapping(value="/login")

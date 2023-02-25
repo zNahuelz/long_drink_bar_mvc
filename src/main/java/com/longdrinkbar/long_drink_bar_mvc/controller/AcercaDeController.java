@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.longdrinkbar.long_drink_bar_mvc.model.Alumno;
+import com.longdrinkbar.long_drink_bar_mvc.entity.Alumno;
 
 @Controller
 public class AcercaDeController {

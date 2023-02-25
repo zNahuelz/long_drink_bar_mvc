@@ -1,6 +1,24 @@
-package com.longdrinkbar.long_drink_bar_mvc.model;
+package com.longdrinkbar.long_drink_bar_mvc.entity;
 
-public class Alumno {
+
+import java.io.Serializable;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="alumnos")
+public class Alumno implements Serializable{
+    private static final Long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+
     private String nombre;
     private String apellido;
     private String dni;
@@ -16,6 +34,18 @@ public class Alumno {
         this.foto = foto;
     }
 
+    public static Long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -47,6 +77,8 @@ public class Alumno {
     public void setFoto(String foto) {
         this.foto = foto;
     }
+
+
 
     
 }
