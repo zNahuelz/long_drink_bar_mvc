@@ -18,16 +18,16 @@
       
               <ul class="d-grid gap-4 my-5 list-unstyled">
                 <li class="d-flex gap-4">
-                  <div th:text="'NOMBRE: '+${nombre}"></div>
+                  <div th:text="'NOMBRE: '+${verUsuario.nombre}"></div>
                 </li>
                 <li class="d-flex gap-4">
-                  <div th:text="'APELLIDO: '+${apellido}"></div>
+                  <div th:text="'APELLIDO: '+${verUsuario.apellidos}"></div>
                 </li>
                 <li class="d-flex gap-4">
-                  <div th:text="'DNI: '+${dni}"></div>
+                  <div th:text="'DNI: '+${verUsuario.dni}"></div>
                 </li>
                 <li class="d-flex gap-4">
-                    <div th:text="'E-MAIL: '+${email}"></div>
+                    <div th:text="'E-MAIL: '+${verUsuario.email}"></div>
                 </li>
                 <li class="d-flex gap-4">
                     <div th:text="'CONTRASEÑA: '+${passw}" style="display: none"></div>

@@ -1,0 +1,2 @@
+INSERT INTO usuarios (activo, apellidos, dni, email, nombre, password, permiso, username) VALUES (1,'Martinez','06777356','dvadm@gmail.com','David','12345',0,'06777356');
+INSERT INTO usuarios (activo, apellidos, dni, email, nombre, password, permiso, username) VALUES (1,'Ochoa','03444567','dnaveh@outlook.com','Daniel','12345',0,'03444567');

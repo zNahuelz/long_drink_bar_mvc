@@ -1,11 +1,31 @@
 package com.longdrinkbar.long_drink_bar_mvc.entity;
 
-public class Usuario {
+import java.io.Serializable;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="usuarios")
+public class Usuario implements Serializable{
+    //Autoincrementar ID.
+    private static final long serialVersionUID=1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String username;
     private String password;
-    private short permiso; //Nivel de permiso del usuario. 0-1-/2?
-    private char activo;
+    private short permiso = 1; //Nivel de permiso del usuario. 
+    // 0 -> Admin / 1 -> Usuario / 2 -> Alumno / 3 -> Profesor.
+    private char activo = '1';
     private String email;
+    //Extra.
+    private String nombre;
+    private String apellidos;
+    private String dni;
     
     public Usuario() {
     }
@@ -28,8 +48,10 @@ public class Usuario {
         return username;
     }
 
+    //Igualar el nombre de usuario con el DNI ~
+    //O usuario escoge username personalizado?
     public void setUsername(String username) {
-        this.username = username;
+        this.username = this.getDni();
     }
 
     public String getPassword() {
@@ -63,5 +85,42 @@ public class Usuario {
     public void setEmail(String email){
         this.email = email;
     }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getDni(){
+        return dni;
+    }
+
+    public void setDni(String dni){
+        this.dni = dni;
+    }
     
 }
+
