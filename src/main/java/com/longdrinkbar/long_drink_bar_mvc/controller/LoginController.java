@@ -1,18 +1,22 @@
 package com.longdrinkbar.long_drink_bar_mvc.controller;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-//Cambiar importación cuando se requiera.
-//import com.longdrinkbar.long_drink_bar_mvc.entity.Usuario;
+import com.longdrinkbar.long_drink_bar_mvc.dao.IUsuarioDAO;
+import com.longdrinkbar.long_drink_bar_mvc.entity.Usuario;
 
-import com.longdrinkbar.long_drink_bar_mvc.model._Usuario;
+
 
 
 @Controller
 public class LoginController {
+    @Autowired
+    private IUsuarioDAO usrDAO;
+
     @GetMapping(value="/login")
     public String login(Model m){
         return "login";
@@ -22,11 +26,12 @@ public class LoginController {
     public String logExitoso(Model m, 
     @RequestParam(name="email") String correo,
     @RequestParam(name="password") String contra){
-        _Usuario user = new _Usuario();
-        user.setEmail(correo);
-        user.setPassword(contra);
-        m.addAttribute("usuario", user);
-        m.addAttribute("titulo","Cursos de nuestra institución");
-        return "cursos-login";
+        Usuario buscar = usrDAO.buscarUsuario(correo);
+        if(buscar == null){
+            return "redirect:LoginNoExitoso";
+        }
+        else{
+            return "redirect:cursos";
+        }
     }
 }

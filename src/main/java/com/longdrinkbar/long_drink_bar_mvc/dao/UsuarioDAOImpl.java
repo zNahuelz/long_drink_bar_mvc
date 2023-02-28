@@ -50,5 +50,17 @@ public class UsuarioDAOImpl implements IUsuarioDAO{
     public void eliminarUsr(Long id) {
         em.remove(editarUsr(id));
     }
+
+    // METODO PARA EL LOGIN
+    @Transactional
+    @Override
+    public Usuario buscarUsuario(String email) {
+        try{
+            return em.createQuery("select u from Usuario u where email = '"+email+"'", Usuario.class).getSingleResult();
+        }
+        catch(Exception ex){
+            return null;
+        }
+    }
     
 }

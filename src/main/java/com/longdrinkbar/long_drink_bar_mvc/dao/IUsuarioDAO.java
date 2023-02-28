@@ -15,4 +15,6 @@ public interface IUsuarioDAO {
     public Usuario editarUsr(Long id);
     //Eliminar usuario. -> Deberia marcar estado a 0.
     public void eliminarUsr(Long id);
+    //Buscar usuario por email & password
+    public Usuario buscarUsuario(String email);
 }
