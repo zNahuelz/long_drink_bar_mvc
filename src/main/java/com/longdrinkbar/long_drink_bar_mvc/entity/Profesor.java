@@ -1,4 +1,4 @@
-package com.longdrinkbar.long_drink_bar_mvc.model;
+package com.longdrinkbar.long_drink_bar_mvc.entity;
 
 public class Profesor{
     private String nombre;

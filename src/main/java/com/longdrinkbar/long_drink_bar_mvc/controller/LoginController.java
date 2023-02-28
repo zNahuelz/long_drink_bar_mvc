@@ -5,7 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+//Cambiar importación cuando se requiera.
+//import com.longdrinkbar.long_drink_bar_mvc.entity.Usuario;
+
 import com.longdrinkbar.long_drink_bar_mvc.model._Usuario;
+
+
 @Controller
 public class LoginController {
     @GetMapping(value="/login")
