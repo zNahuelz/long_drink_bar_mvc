@@ -1,23 +1,45 @@
 package com.longdrinkbar.long_drink_bar_mvc.model;
 
-public class Curso {
+import java.io.Serializable;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name ="curso")
+public class Curso implements Serializable{
+    private static final Long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_curso")
+    private int id;
     private String nombre;
-    private char turno;
-    private float precio;
     private String descripcion;
-    private String duracion;
-    private String intervalo;
-    
+    private float costo;
+    private short duracion;
+
+    public Curso(int id, String nombre, String descripcion, float costo, short duracion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.costo = costo;
+        this.duracion = duracion;
+    }
+
     public Curso() {
     }
 
-    public Curso(String nombre, char turno, float precio, String descripcion, String duracion, String intervalo) {
-        this.nombre = nombre;
-        this.turno = turno;
-        this.precio = precio;
-        this.descripcion = descripcion;
-        this.duracion = duracion;
-        this.intervalo = intervalo;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -28,22 +50,6 @@ public class Curso {
         this.nombre = nombre;
     }
 
-    public char getTurno() {
-        return turno;
-    }
-
-    public void setTurno(char turno) {
-        this.turno = turno;
-    }
-
-    public float getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(float precio) {
-        this.precio = precio;
-    }
-
     public String getDescripcion() {
         return descripcion;
     }
@@ -52,21 +58,24 @@ public class Curso {
         this.descripcion = descripcion;
     }
 
-    public String getDuracion() {
+    public float getCosto() {
+        return costo;
+    }
+
+    public void setCosto(float costo) {
+        this.costo = costo;
+    }
+
+    public short getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(String duracion) {
+    public void setDuracion(short duracion) {
         this.duracion = duracion;
     }
 
-    public String getIntervalo() {
-        return intervalo;
+    public static long getSerialversionuid() {
+        return serialVersionUID;
     }
-
-    public void setIntervalo(String intervalo) {
-        this.intervalo = intervalo;
-    }
-
     
 }
