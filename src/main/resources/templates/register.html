@@ -16,24 +16,33 @@
           <h1 class="h3 mb-3 fw-normal">Registro de Usuario</h1>
             <!---Usuario(DNI), nombre, apellido, email, passw-->
           <div class="form-floating">
-            <input type="text" class="form-control" id="nombre" name="nombre">
+            <input type="text" class="form-control" id="nombre" name="nombre" th:value="${alum.nombre}">
             <label for="floatingInput">Nombre</label>
           </div>
           <div class="form-floating mt-2">
-            <input type="text" class="form-control" id="apellido" name="apellido">
-            <label for="floatingInput">Apellidos</label>
+            <input type="text" class="form-control" id="apellidoP" name="apellidoP" th:value="${alum.apPaterno}">
+            <label for="floatingInput">Apellido Paterno</label>
           </div>
           <div class="form-floating mt-2">
-            <input type="number" class="form-control" id="dni" name="dni">
+            <input type="text" class="form-control" id="apellidoM" name="apellidoM" th:value="${alum.apMaterno}">
+            <label for="floatingInput">Apellido Materno</label>
+          </div>
+          <div class="form-floating mt-2">
+            <input type="number" class="form-control" id="dni" name="dni" th:value="${alum.dni}>
             <label for="floatingInput">DNI</label>
           </div>
           <div class="form-floating mt-2">
-            <input type="email" class="form-control" id="email" name="email">
+            <input type="email" class="form-control" id="email" name="email" th:value="${alum.email}>
             <label for="floatingInput">E-Mail</label>
           </div>
           <div class="form-floating mt-2">
-            <input type="password" class="form-control" id="passw" name="passw">
+            <input type="password" class="form-control" id="contrasena" name="passw" th:value="${usr.contrasena}>
             <label for="floatingPassword">Contraseña</label>
+            <input type="hidden" th:value="${alum.id}"> <!---Gestión de ID.-->
+            <input type="hidden" th:value="${alum.nombre_usuario}">
+            <input type="hidden" th:value="${usr.id}">
+            <input type="hidden" th:value="${usrAlum.id}">
+            <input type="hidden" th:value="${usr.permisos}">
           </div>
           <div class="mt-2">
             <button class="w-100 btn btn-lg btn-primary" type="submit">Continuar</button>

@@ -3,7 +3,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
+
+import com.longdrinkbar.long_drink_bar_mvc.entity.Alumno;
+import com.longdrinkbar.long_drink_bar_mvc.entity.Usuario;
+import com.longdrinkbar.long_drink_bar_mvc.entity.UsuarioAlumno;
 @Controller
 public class RegisterController {
 
@@ -14,25 +18,25 @@ public class RegisterController {
     //GET.
     @GetMapping("/register")
     public String register(Model m){
-        m.addAttribute("titulo","REGISTRO DE USUARIOS");
+        Usuario usr = new Usuario();
+        UsuarioAlumno usrAlum = new UsuarioAlumno();
+        Alumno alum = new Alumno();
+        m.addAttribute("titulo","Long Drink Bar - Registro");
+        m.addAttribute("usuario",usr);
+        m.addAttribute("usuarioAlumno",usrAlum);
+        m.addAttribute("alumno",alum);
         return "register";
     }
     //POST
     
     @PostMapping("/register")
-    public String regExitoso(Model m, 
-    @RequestParam(name="dni") String dni, 
-    @RequestParam(name="nombre") String nombre,
-    @RequestParam(name="apellido") String apellido,
-    @RequestParam(name="email") String email,
-    @RequestParam(name="passw") String passw
+    public String guardarRegistro(Model m, Usuario usr, UsuarioAlumno usrAlum, Alumno alum
     ){
         m.addAttribute("titulo","REGISTRO EXITOSO!");
-        m.addAttribute("dni",dni);
-        m.addAttribute("nombre",nombre);
-        m.addAttribute("apellido",apellido);
-        m.addAttribute("email",email);
-        m.addAttribute("passw",passw);
+        m.addAttribute("v1", 1);
+        //usrDAO.registrar(usr, usrAlum, alum);
+        m.addAttribute("mostrarDatos",alum); //usr
+        m.addAttribute("email",alum.getEmail());
         return "registro-exitoso";
     }
 }

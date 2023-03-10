@@ -7,24 +7,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Column;
 
 @Entity
 @Table(name="profesor_curso")
 public class ProfesorCurso implements Serializable{
-    private static final long serialVersionUID=1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_inscripcion")
-    private int id;
 
-    //Revisar relaciones.
+    @Id
     @ManyToOne
     @JoinColumn(name="id_profesor")
     private Profesor id_profesor;
+    @Id
     @ManyToOne
     @JoinColumn(name="id_curso")
     private Curso id_curso;
@@ -33,14 +26,6 @@ public class ProfesorCurso implements Serializable{
 
     
     public ProfesorCurso(Profesor id_profesor, Curso id_curso, Date fecha_inicio, Date fecha_final) {
-        this.id_profesor = id_profesor;
-        this.id_curso = id_curso;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_final = fecha_final;
-    }
-
-    public ProfesorCurso(int id, Profesor id_profesor, Curso id_curso, Date fecha_inicio, Date fecha_final) {
-        this.id = id;
         this.id_profesor = id_profesor;
         this.id_curso = id_curso;
         this.fecha_inicio = fecha_inicio;
@@ -76,16 +61,5 @@ public class ProfesorCurso implements Serializable{
         this.fecha_final = fecha_final;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
     
 }

@@ -7,23 +7,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Column;
+
 
 @Entity
 @Table(name="usuario_profesor")
 public class UsuarioProfesor implements Serializable{
-    private static final long serialVersionUID=1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_inscripcion")
-    private int id;
-
     @OneToOne
     @JoinColumn(name="id_profesor")
     private Profesor id_profesor;
+    @Id
     @OneToOne
     @JoinColumn(name="id_usuario")
     private Usuario id_usuario;
@@ -34,14 +28,6 @@ public class UsuarioProfesor implements Serializable{
         this.id_usuario = id_usuario;
     }
     
-
-    public UsuarioProfesor(int id, Profesor id_profesor, Usuario id_usuario) {
-        this.id = id;
-        this.id_profesor = id_profesor;
-        this.id_usuario = id_usuario;
-    }
-
-
     public UsuarioProfesor(){
 
     }
@@ -57,22 +43,6 @@ public class UsuarioProfesor implements Serializable{
     }
     public void setId_usuario(Usuario id_usuario) {
         this.id_usuario = id_usuario;
-    }
-
-
-    public int getId() {
-        return id;
-    }
-
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
-    
+    }  
     
 }
