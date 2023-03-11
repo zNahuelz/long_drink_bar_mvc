@@ -31,6 +31,12 @@ public class Usuario implements Serializable{
         this.permisos = permisos;
     }
 
+    public Usuario(String nombre_usuario, String contrasena, Byte permisos){
+        this.nombre_usuario = nombre_usuario;
+        this.contrasena = contrasena;
+        this.permisos = permisos;
+    }
+
     public Usuario(){
 
     }

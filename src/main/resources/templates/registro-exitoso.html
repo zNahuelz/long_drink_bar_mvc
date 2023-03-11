@@ -18,19 +18,19 @@
       
               <ul class="d-grid gap-4 my-5 list-unstyled">
                 <li class="d-flex gap-4">
-                  <div th:text="'NOMBRE: '+${nombre}"></div>
+                  <div th:text="'NOMBRE: '+${mostrarDatos.nombre}"></div>
                 </li>
                 <li class="d-flex gap-4">
-                  <div th:text="'APELLIDO: '+${apellido}"></div>
+                  <div th:text="'APELLIDO: '+${mostrarDatos.ap_paterno}"></div>
                 </li>
                 <li class="d-flex gap-4">
-                  <div th:text="'DNI: '+${dni}"></div>
+                  <div th:text="'DNI: '+${mostrarDatos.dni}"></div>
                 </li>
                 <li class="d-flex gap-4">
-                    <div th:text="'E-MAIL: '+${email}"></div>
+                    <div th:text="'E-MAIL: '+${mostrarDatos.email}"></div>
                 </li>
                 <li class="d-flex gap-4">
-                    <div th:text="'CONTRASEÑA: '+${passw}" style="display: none"></div>
+                    <div th:text="'CONTRASEÑA: '+${mostrarDatos.contrasena}" style="display: none"></div>
                 </li>
                 <li class="d-flex gap-2"><a th:href="@{login}"><button  type="button" class="btn btn-lg btn-primary w-100 text-center" data-bs-dismiss="modal">Iniciar Sesión</button></a></li>
               </ul>

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.longdrinkbar.long_drink_bar_mvc.entity.Alumno;
+import com.longdrinkbar.long_drink_bar_mvc.entity.AuxRegistro;
 import com.longdrinkbar.long_drink_bar_mvc.entity.Usuario;
 import com.longdrinkbar.long_drink_bar_mvc.entity.UsuarioAlumno;
 
@@ -29,18 +30,15 @@ public class UsuarioDAOImpl implements IUsuarioDAO{
     //Registro de usuarios.
     @Override
     @Transactional
-    public void registrar(Usuario usr, Alumno alum, UsuarioAlumno usrAlum) {
-        if(usr.getId()!=0 && usr.getId()>0){
-            em.merge(usr);
-            em.merge(alum);
-            em.merge(usrAlum);
-        }
-        else{
-            em.persist(usr);
-            em.persist(alum);
-            em.persist(usrAlum);
-        }
-        
+    public void registrar(AuxRegistro aux) {
+        Alumno alum = new Alumno(aux.getNombre(),aux.getAp_materno(),aux.getAp_paterno(),aux.getEmail(),aux.getDni());
+        Usuario usr = new Usuario(aux.getDni(),aux.getContrasena(),aux.getPermisos());
+        UsuarioAlumno usrAlum = new UsuarioAlumno(usr,alum);
+        em.persist(alum);
+        em.persist(usr);
+        em.persist(usrAlum);
+
+        //Usar PERSIST.
     }
 
     //METODO PARA ACTUALIZAR
@@ -57,7 +55,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO{
         em.remove(editarUsr(id));
     }
 
-    // METODO PARA EL LOGIN
+    // METODO PARA EL LOGIN --->> Debe rehacerse.
     @Transactional
     @Override
     public Usuario buscarUsuario(String email) {
