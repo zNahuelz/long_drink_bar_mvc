@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class AcercaDeController {
-    @RequestMapping("/acercade")
+    @RequestMapping("/nosotros")
     public String tarjetas(Model m){
         // List<Alumno> alumnos = new ArrayList<>();
         // m.addAttribute("alumnos", alumnos);
@@ -20,6 +20,6 @@ public class AcercaDeController {
         // m.addAttribute("titulo", "Nosotros");
         // m.addAttribute("tituloPagina", "Sobre Nosotros");
         // m.addAttribute("tituloAlumnos", "Nuestros Alumnos Destacados");
-        return "acercade";
+        return "nosotros";
     }
 }

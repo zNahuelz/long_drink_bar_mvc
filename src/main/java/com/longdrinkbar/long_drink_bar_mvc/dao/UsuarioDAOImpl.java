@@ -32,7 +32,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO{
     @Transactional
     public void registrar(AuxRegistro aux) {
         Alumno alum = new Alumno(aux.getNombre(),aux.getAp_materno(),aux.getAp_paterno(),aux.getEmail(),aux.getDni());
-        Usuario usr = new Usuario(aux.getDni(),aux.getContrasena(),aux.getPermisos());
+        Usuario usr = new Usuario(aux.generarUsername(),aux.getContrasena(),aux.getPermisos());
         UsuarioAlumno usrAlum = new UsuarioAlumno(usr,alum);
         em.persist(alum);
         em.persist(usr);
@@ -58,9 +58,9 @@ public class UsuarioDAOImpl implements IUsuarioDAO{
     // METODO PARA EL LOGIN --->> Debe rehacerse.
     @Transactional
     @Override
-    public Usuario buscarUsuario(String email) {
+    public Usuario buscarUsuario(String username, String pass) {
         try{
-            return em.createQuery("select u from Usuario u where email = '"+email+"'", Usuario.class).getSingleResult();
+            return em.createQuery("select u from Usuario u where nombre_usuario = '"+username+"' AND contrasena = '"+pass+"'", Usuario.class).getSingleResult();
         }
         catch(Exception ex){
             return null;

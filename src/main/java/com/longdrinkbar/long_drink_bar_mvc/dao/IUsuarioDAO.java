@@ -19,5 +19,5 @@ public interface IUsuarioDAO {
     //Eliminar usuario. -> Deberia marcar estado a 0.
     public void eliminarUsr(int id);
     //Buscar usuario por email & password -->> hacer coincidir con requerimentos. (RODRIGO)
-    public Usuario buscarUsuario(String email);
+    public Usuario buscarUsuario(String username, String pass);
 }

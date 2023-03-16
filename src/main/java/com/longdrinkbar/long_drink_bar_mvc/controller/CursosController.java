@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CursosController {
     @RequestMapping(value="/cursos")
     public String cursos(Model model){
-        model.addAttribute("macerados", "Macerados");
-        model.addAttribute("desh", "Deshidratados");
-        model.addAttribute("Pisco", "Cocteleria con Pisco");
-        model.addAttribute("titulo", "Cursos de nuestra institución");
+        // model.addAttribute("macerados", "Macerados");
+        // model.addAttribute("desh", "Deshidratados");
+        // model.addAttribute("Pisco", "Cocteleria con Pisco");
+        // model.addAttribute("titulo", "Cursos de nuestra institución");
         return "cursos";
     }
 }

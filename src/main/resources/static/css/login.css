@@ -1,8 +1,9 @@
 .form{
-    width: 40%;
-    margin: 30px auto;
-}
-
-.btn, label{
+    height: 70vh;
+    margin-top: 36px;
+    display: grid;
+    place-items: center;
+  }
+  .botones button{
     margin-top: 20px;
-}
+  }

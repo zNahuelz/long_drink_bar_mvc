@@ -94,6 +94,8 @@ public class AuxRegistro {
         this.permisos = permisos;
     }
 
-    
+    public String generarUsername(){
+        return this.nombre.trim().toUpperCase().substring(0,1) + this.ap_paterno.trim().toUpperCase().substring(0,1) + this.ap_materno.trim().toUpperCase().substring(0,1) + this.dni;
+    }
 
 }

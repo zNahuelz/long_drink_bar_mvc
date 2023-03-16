@@ -15,7 +15,7 @@ public class RegisterController {
     //GET
     @GetMapping("/register")
     public String register(Model m){
-        m.addAttribute("titulo","Long Drink Bar - Registro");
+        m.addAttribute("titulo","REGISTRO");
         return "register";
     }
     //POST
@@ -31,8 +31,10 @@ public class RegisterController {
     ){
         m.addAttribute("titulo","REGISTRO EXITOSO!");
         AuxRegistro clase = new AuxRegistro(nombre, contrasena, ap_materno, ap_paterno, dni, email, (byte)1);
+        String username = clase.generarUsername();
         usrDAO.registrar(clase);
         m.addAttribute("mostrarDatos",clase);
+        m.addAttribute("username", username);
         return "registro-exitoso";
     }
 }

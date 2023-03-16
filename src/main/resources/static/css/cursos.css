@@ -1,6 +1,41 @@
-.contenedor-cartas{
+.container{
+    display: grid;
+    place-items: center;
+    margin: 28px 0 0 0;
+}
+.card-container{
+    display: grid;
+    place-items: center;
+}
+.card{
+    margin: 0 0 32px 0;
+    width: 60%;
+}
+.card-body{
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+.card-body a{
+    display: block;
+    width: 120px;
+    height: 30px;
+    margin-left: 16px;
+    font-size: 12px;
+    text-align: center;
+}
+.card-header{
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-body a:first-child{
+    margin-bottom: 12px;
+}
+i{
+    font-size: 20px;
+    color: white;
 }
 
+.footer{
+    width: 100%;
+}

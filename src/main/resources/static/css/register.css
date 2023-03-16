@@ -1,4 +1,4 @@
-html,
+/* html,
 body {
 height: 100%;
 }
@@ -18,7 +18,7 @@ padding: 15px;
 
 .form-signin .form-floating:focus-within {
 z-index: 2;
-}
+} */
 
 /*
 .form-signin input[type="email"] {
@@ -53,4 +53,32 @@ input::-webkit-inner-spin-button {
 /* Eliminar spin up/down -> Firefox. */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+form{
+  display: grid;
+  place-items: center;
+  margin-top: 20px;
+}
+.botones{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+}
+.botones button{
+  display: inline-block;
+  width: 50%;
+  height: 40px;
+  font-size: 15px;
+  text-align: center;
+  margin-right: 16px;
+}
+
+.botones input {
+  display: inline-block;
+  width: 50%;
+  height: 40px;
+  font-size: 15px;
+  text-align: center;
 }

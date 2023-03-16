@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.longdrinkbar.long_drink_bar_mvc.entity.Alumno;
+import com.longdrinkbar.long_drink_bar_mvc.entity.AuxRegistro;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -30,11 +31,13 @@ public class AlumnoDAOImp implements IAlumnoDAO{
 
     @Override
     @Transactional
-    public void guardar(Alumno alumno) {
-        if(alumno.getId() != 0 && alumno.getId() > 0){
-            em.merge(alumno);
+    public void guardar(AuxRegistro aux) {
+        Alumno alum = new Alumno(aux.getNombre(),aux.getAp_materno(),aux.getAp_paterno(),aux.getEmail(),aux.getDni());
+
+        if(alum.getId() != 0 && alum.getId() > 0){
+            em.merge(alum);
         }else{
-            em.persist(alumno);
+            em.persist(alum);
         }
         
     }
