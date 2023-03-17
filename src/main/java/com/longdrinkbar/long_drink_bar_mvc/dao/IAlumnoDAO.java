@@ -15,4 +15,6 @@ public interface IAlumnoDAO {
     public Alumno buscarAlumno(Long id);
 
     public void eliminarAlumno(Long id);
+
+    public Alumno comprobarExistencia(String dni, String email);
 }

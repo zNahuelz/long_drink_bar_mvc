@@ -48,5 +48,18 @@ public class AlumnoDAOImp implements IAlumnoDAO{
     public List<Alumno> listarAlumnos() {
         return em.createQuery("from Alumno").getResultList();
     }
+
+    //Metodo para comprobar existencia previa de DNI y EMAIL.
+
+    @Override
+    @Transactional
+    public Alumno comprobarExistencia(String dni, String email) {
+        try{
+            return em.createQuery("select i from Alumno i where dni ='"+dni+"' OR email='"+email+"'", Alumno.class).getSingleResult();
+        }
+        catch (Exception ex){
+            return null;
+        }
+    }
     
 }
