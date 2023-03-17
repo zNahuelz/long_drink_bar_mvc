@@ -34,8 +34,8 @@ public class RegisterController {
     @RequestParam(name="dni") String dni,
     @RequestParam(name="email") String email
     ){
-        Alumno chkExistencia = alumDAO.comprobarExistencia(dni, email);
         String mensajeError = "";
+        Alumno chkExistencia = alumDAO.comprobarExistencia(dni, email);
         if (chkExistencia == null){
             m.addAttribute("titulo","REGISTRO EXITOSO!");
             AuxRegistro clase = new AuxRegistro(nombre, contrasena, ap_materno, ap_paterno, dni, email, (byte)1);
@@ -46,17 +46,19 @@ public class RegisterController {
             return "registro-exitoso";
         }
         else{
-            if (chkExistencia.getEmail() == email){
-                mensajeError += "Error! El e-mail ingresado ya se encuentra registrado. Debe ingresar un e-email distinto o recuperar sus credenciales. \n";
-                m.addAttribute("error",mensajeError);
+            if (chkExistencia.getDni().equals(dni)){
+                mensajeError = "Error! El DNI ingresado ya se encuentra registrado. Debe recuperar sus credenciales.";
             }
-            if (chkExistencia.getDni() == dni){
-                mensajeError += "Error! El DNI ingresado ya se encuentra registrado. Debe ingresar un DNI distinto o recuperar sus credenciales. \n";
-                m.addAttribute("error",mensajeError);
+            if (chkExistencia.getEmail().equals(email)){
+                mensajeError = "Error! El E-Mail ingresado ya se encuentra registrado. Debe recuperar sus credenciales.";
+            }
+            if (chkExistencia.getEmail().equals(email) && chkExistencia.getDni().equals(dni)){
+                mensajeError = "Error! Los datos ingresados ya se encuentran registrados. Debe recuperar sus credenciales.";
             }
             m.addAttribute("error",mensajeError);
-            return "registro-no-exitoso";
+            return "registro_erroneo";
         }
 
     }
+
 }
