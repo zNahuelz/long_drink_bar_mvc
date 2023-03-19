@@ -1,0 +1,13 @@
+.navbar .contenedor{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  a{
+    display: inline-block;
+    margin: 0 32px;
+  }
+  a i{
+    color: black;
+  }
