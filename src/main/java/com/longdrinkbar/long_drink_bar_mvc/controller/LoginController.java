@@ -26,17 +26,25 @@ public class LoginController {
     public String logExitoso(Model m, 
     @RequestParam(name="username") String nombreUsuario,
     @RequestParam(name="passw") String contra){
-        // Usuario user = new Usuario();
-        // user.setEmail(correo);
-        // user.setPassword(contra);
-        // m.addAttribute("usuario", user);
-        // m.addAttribute("titulo","Cursos de nuestra institución");
         Usuario user = usuarioDAO.buscarUsuario(nombreUsuario, contra);
         if (user == null){
             return "login-no-exitoso";
         }
         else{
-            return "cursos-alumno";
+            String retorno = "";
+            if (user.getPermisos() == 0){
+                retorno = "adminPanel";
+            }
+            else if (user.getPermisos() == 1){
+                retorno = "cursos-alumno"; //dashboard. 
+            }
+            else if (user.getPermisos() == 2){
+                retorno = "profesorPanel";
+            }
+            else{
+                retorno = "redirect:/";
+            }
+            return retorno;
         }
     }
 }

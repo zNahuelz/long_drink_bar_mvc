@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PanelController {
     @RequestMapping("/panel")
     public String panel(Model m){
-        return "panel";
+        return "adminPanel";
     }
 }
