@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 import com.longdrinkbar.long_drink_bar_mvc.dao.IUsuarioDAO;
 import com.longdrinkbar.long_drink_bar_mvc.entity.Usuario;
 
@@ -16,6 +17,9 @@ public class LoginController {
 
     @Autowired
     private IUsuarioDAO usuarioDAO;
+
+    @Autowired
+    private DashboardController dashboard;
 
     @GetMapping(value="/login")
     public String login(Model m){
@@ -36,7 +40,7 @@ public class LoginController {
                 retorno = "adminPanel";
             }
             else if (user.getPermisos() == 1){
-                retorno = "cursos-alumno"; //dashboard. 
+                retorno = "redirect:/dashboard/home"; //Para demostracion.
             }
             else if (user.getPermisos() == 2){
                 retorno = "profesorPanel";
