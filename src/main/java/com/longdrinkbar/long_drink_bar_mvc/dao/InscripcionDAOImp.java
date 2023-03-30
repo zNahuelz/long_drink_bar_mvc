@@ -24,7 +24,7 @@ public class InscripcionDAOImp implements IInscripcionDAO {
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional(readOnly = true) //readOnly = true
     public List<Inscripcion> obtenerInscripcion(int id_alum) {
         try{
             return em.createQuery("select i from inscripcion i where id_alumno ="+id_alum,Inscripcion.class).getResultList();
