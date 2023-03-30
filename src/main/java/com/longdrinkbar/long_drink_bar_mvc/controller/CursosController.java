@@ -12,8 +12,11 @@ public class CursosController {
     @Autowired
     private ICursoDAO cursoDAO;
 
+    //Listar Cursos...
     @RequestMapping(value="/cursos")
     public String cursos(Model m){
+        m.addAttribute("titulo", "Long Drink Bar - Cursos");
+        m.addAttribute("subtitulo","Nuestros Cursos");
         m.addAttribute("cursos",cursoDAO.listarCursos());
         return "cursos-publicos";
     }

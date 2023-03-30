@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${titulo}">TUS CURSOS</title>
+    <title th:text="${titulo}"></title>
     <link rel="stylesheet" th:href="@{/css/cursos.css}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
@@ -13,56 +13,24 @@
     <section th:replace="./fragments/navbar"></section>
 
     <div class="container">
-            <h2 class="borde" th:text="${subt}"></h2>
-            <div class="card-container">
-                <div class="card" th:each="c:${cursos}">
-                    <div class="card-header bg-success bg-gradient">
-                        <h5 class=" text-white" th:text="${c.nombre}"></h5>
-                        <i class="bi bi-cup-straw"></i>
-                    </div>
-                    <div class="card-body">
-                      <span class="card-text" th:text="${c.descripcion}"></span>
-                      <div>
-                        <a href="#" class="btn btn-primary">Inscribirse</a>
-                        <a href="#" class="btn btn-secondary">Más Información</a>
-                      </div>
-                    </div>
+        <h2 th:text="${subt}" class="borde"></h2>
+
+        <div class="card-container">
+            <h2 th:text="${subtitulo}" class="espaciado"></h2>
+            <div class="card" th:each="c:${cursos}">
+                <div class="card-header bg-primary bg-gradient">
+                    <h5 th:text="${c.nombre}" class=" text-white"></h5>
+                    <!-- <i class="bi bi-cup-straw"></i> -->
                 </div>
-        </div>
-        <!-- <div class="container">
-            <div class="row contenedor-cartas">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://cdn0.recetasgratis.net/es/posts/0/2/4/pisco_sour_75420_4_600.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 th:text="${Pisco}" class="card-title"></h5>
-                    <p class="card-text">Se le influirá conocimiento sobre bebidas y cocteles con pisco, conocer puntos fuertes y olores</p>
-                    <a href="#" class="btn btn-danger">Registrarse al curso</a>
-                    </div>
-                </div>
-    
-                
-    
-                <div class="card" style="width: 18rem;">
-                    <img src="https://storage.googleapis.com/stateless-www-thelabel-cl/2020/10/73ee4620-kyryll-ushakov-lwotubyiuc4-unsplash-scaled.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 th:text="${desh}" class="card-title"></h5>
-                    <p class="card-text">Información básica de frutas que se pueden deshidratar para los cocktails como las naranjas, limones y limas, que nos darán mucho juego a la hora de decorar.</p>
-                    <a href="#" class="btn btn-danger">Registrarse al curso</a>
-                    </div>
-                </div>
-    
-    
-                <div class="card" style="width: 18rem;">
-                    <img src="http://2.bp.blogspot.com/-dHg5XAjRrXM/Vlp7NO7_qUI/AAAAAAAAAIs/31T8julaQRU/s1600/Variedad-de-tragos.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 th:text="${macerados}" class="card-title"></h5>
-                    <p class="card-text">Se mostrará bebidas elaboradas por maceración en frío son el café Cold Brew o algunos licores como el Pacharán o las Hierbas Ibicencas..</p>
-                    <a href="#" class="btn btn-danger">Registrarse al curso</a>
-                    </div>
+                <div class="card-body">
+                  <span th:text="${c.descripcion}" class="card-text"></span>
+                  <div>
+                    <a href="#" th:href="@{login}" class="btn btn-primary">Inscribirse</a>
+                    <a href="#" class="btn btn-secondary">Más Información</a>
+                  </div>
                 </div>
             </div>
         </div>
-         -->
     </div>
     <section class="footer" th:replace="./fragments/footer"></section>
     <script src="/src/main/resources/static/js/bootstrap.js"></script>
