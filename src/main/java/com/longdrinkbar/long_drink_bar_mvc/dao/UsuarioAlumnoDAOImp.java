@@ -2,7 +2,6 @@ package com.longdrinkbar.long_drink_bar_mvc.dao;
 
 import org.springframework.stereotype.Repository;
 
-import com.longdrinkbar.long_drink_bar_mvc.entity.Usuario;
 import com.longdrinkbar.long_drink_bar_mvc.entity.UsuarioAlumno;
 
 import jakarta.persistence.EntityManager;

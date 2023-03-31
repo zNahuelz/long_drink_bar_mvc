@@ -33,7 +33,7 @@ public class LoginController {
         Usuario user = usuarioDAO.buscarUsuario(nombreUsuario, contra);
         if (user == null){
             ModelAndView error = new ModelAndView(new RedirectView("login-no-exitoso"));
-            return error;// return "login-no-exitoso";
+            return error;
         }
         else{
             String retorno = "";
@@ -47,7 +47,7 @@ public class LoginController {
                 retorno = "profesorPanel"; //OK
             }
             else{
-                retorno = "/"; //Maybe OK.
+                retorno = "/"; //Ok
             }
             //Asignar modelo, vista y usuario logeado.
             ModelAndView mav = new ModelAndView(new RedirectView(retorno));

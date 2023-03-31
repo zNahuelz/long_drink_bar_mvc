@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.longdrinkbar.long_drink_bar_mvc.dao.AlumnoDAOImp;
 import com.longdrinkbar.long_drink_bar_mvc.dao.ICursoDAO;
 import com.longdrinkbar.long_drink_bar_mvc.dao.IInscripcionDAO;
-import com.longdrinkbar.long_drink_bar_mvc.dao.IUsuarioAlumnoDAO;
+import com.longdrinkbar.long_drink_bar_mvc.entity.Alumno;
+import com.longdrinkbar.long_drink_bar_mvc.entity.Curso;
 import com.longdrinkbar.long_drink_bar_mvc.entity.Inscripcion;
 import com.longdrinkbar.long_drink_bar_mvc.entity.Usuario;
 import com.longdrinkbar.long_drink_bar_mvc.model.UserTransporter;
@@ -24,14 +26,11 @@ public class DashboardController {
     private IInscripcionDAO inscripcionDAO;
 
     @Autowired
-    private IUsuarioAlumnoDAO usrAlumDAO;
+    private AlumnoDAOImp alumDAO;
 
     @RequestMapping(value="dashboard/home", method = {RequestMethod.GET, RequestMethod.POST}) //Check.
     public ModelAndView listarCursos(Model m){
-        m.addAttribute("titulo", "Long Drink Bar - Cursos");
-        m.addAttribute("subt","Cursos Disponibles");
-        m.addAttribute("subt2","Tus Cursos");
-        
+
         //Asignar modelo y vista, asi como obtener usuario logeado (Login -> Dashboard).
         ModelAndView mav = new ModelAndView();
         mav.setViewName("dashboard-cursos");
@@ -39,22 +38,38 @@ public class DashboardController {
         if(UserTransporter.checkDisponible()){
             usuario = UserTransporter.getUsuario();
         } 
-        m.addAttribute("datosUsuario", usuario);
-        //m.addAttribute("nombreEstudiante", usrAlumDAO.buscarNombre(usuario.getId()));
-        // List<Inscripcion> listado = inscripcionDAO.obtenerInscripcion(usuario.getId());
-        // List<Integer> test = new ArrayList<Integer>();
-        // for (Inscripcion i : listado) {
-        //     test.add(i.getId_curso().getId());
-        // }
-        // cursoDAO.cursosAlumno(test);
+        
+        //Obtener objeto alumno para extraer nombre.
+        Alumno a = alumDAO.buscarAlumno(usuario.getId());
+        
+        //Llenar Array con ID's de cursos inscritos.
         List<Integer> test = new ArrayList<Integer>();
-        m.addAttribute("test", test);
-        test.add(3);
-        test.add(1);
-        m.addAttribute("tusCursos",cursoDAO.cursosAlumno(test));
+        List<Inscripcion> cursosInscritos = inscripcionDAO.obtenerInscripcion(usuario.getId());
+        if(cursosInscritos.size() >0){
+            for (Inscripcion i : cursosInscritos) {
+                test.add(i.getId_curso().getId());
+            }
+        }
+
+        //TO-DO: Array sin cursos inscritos...
+
+        // List<Curso> cursosGenerales = cursoDAO.listarCursos();
+        // for(int i : test){
+        //     for(Curso c : cursosGenerales){
+        //         if(c.getId()==i){
+        //             cursosGenerales.remove(c);
+        //         }
+        //     }
+        // }
+
+        m.addAttribute("titulo", "Long Drink Bar - Cursos");
+        m.addAttribute("subt","Cursos Disponibles");
+        m.addAttribute("subt2","Tus Cursos");
+        m.addAttribute("tusCursos",cursoDAO.cursosAlumno(test)); //Listado de cursos inscritos.
         m.addAttribute("cursos",cursoDAO.listarCursos()); //Listado de Cursos Generales.
-        //return "dashboard-cursos";
-        //mav.addObject("datosUsuario",usuario);
+        m.addAttribute("nombreAlum",a.getNombre()+" "+a.getApPaterno()); //Nombre - Apellido.
+        m.addAttribute("datosUsuario", usuario); //Objeto Usuario.
+
         return mav;
     }
 

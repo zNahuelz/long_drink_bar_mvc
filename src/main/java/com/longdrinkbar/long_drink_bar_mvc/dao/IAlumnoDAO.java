@@ -12,9 +12,9 @@ public interface IAlumnoDAO {
     
     public void guardar(AuxRegistro aux);
 
-    public Alumno buscarAlumno(Long id);
+    public Alumno buscarAlumno(int id);
 
-    public void eliminarAlumno(Long id);
+    public void eliminarAlumno(int id);
 
     public Alumno comprobarExistencia(String dni, String email);
 }

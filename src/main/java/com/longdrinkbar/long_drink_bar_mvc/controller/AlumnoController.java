@@ -69,7 +69,7 @@ public class AlumnoController {
     }
 
     @GetMapping(value="/formAlumno/{id}")
-    public String editarAlumno(@PathVariable(value="id") Long id, Map<String, Object> model){
+    public String editarAlumno(@PathVariable(value="id") int id, Map<String, Object> model){
         Alumno al = null;
 
         if (id > 0){
@@ -86,7 +86,7 @@ public class AlumnoController {
     }
 
     @GetMapping(value="/eliminarAlumno/{id}")
-    public String eliminarAlumno(@PathVariable(value="id") Long id){
+    public String eliminarAlumno(@PathVariable(value="id") int id){
         if (id > 0){
             alumnoDAO.eliminarAlumno(id);
         }
@@ -95,7 +95,7 @@ public class AlumnoController {
 
 
     @GetMapping(value="/verAlumno/{id}")
-    public String verAlumno(@PathVariable(value="id") Long id, Map<String, Object> model){
+    public String verAlumno(@PathVariable(value="id") int id, Map<String, Object> model){
         Alumno alumno = alumnoDAO.buscarAlumno(id);
         if (alumno == null){
             return "redirect:/listarAlumno";
