@@ -51,22 +51,17 @@ public class DashboardController {
             }
         }
 
-        //TO-DO: Array sin cursos inscritos...
-
-        // List<Curso> cursosGenerales = cursoDAO.listarCursos();
-        // for(int i : test){
-        //     for(Curso c : cursosGenerales){
-        //         if(c.getId()==i){
-        //             cursosGenerales.remove(c);
-        //         }
-        //     }
-        // }
+        //Array sin cursos inscritos.
+        List<Curso> cursosAux = cursoDAO.cursosAlumno(test);
+        List<Curso> cursosGenerales = cursoDAO.listarCursos();
+        cursosGenerales.removeAll(cursosAux);
+        
 
         m.addAttribute("titulo", "Long Drink Bar - Cursos");
         m.addAttribute("subt","Cursos Disponibles");
         m.addAttribute("subt2","Tus Cursos");
         m.addAttribute("tusCursos",cursoDAO.cursosAlumno(test)); //Listado de cursos inscritos.
-        m.addAttribute("cursos",cursoDAO.listarCursos()); //Listado de Cursos Generales.
+        m.addAttribute("cursos",cursosGenerales); //Listado de cursos -> Excluye a los que ya se inscribio.
         m.addAttribute("nombreAlum",a.getNombre()+" "+a.getApPaterno()); //Nombre - Apellido.
         m.addAttribute("datosUsuario", usuario); //Objeto Usuario.
 
