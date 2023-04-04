@@ -19,13 +19,13 @@ public class AlumnoDAOImp implements IAlumnoDAO{
 
     @Override
     @Transactional
-    public Alumno buscarAlumno(Long id) {
+    public Alumno buscarAlumno(int id) {
         return em.find(Alumno.class, id);
     }
 
     @Override
     @Transactional
-    public void eliminarAlumno(Long id) {
+    public void eliminarAlumno(int id) {
         em.remove(buscarAlumno(id));        
     }
 

@@ -12,15 +12,20 @@
 </head>
 <body>
     <section th:fragment="barra-plogin">
-        <nav class="navbar bg-body-tertiary">
+        <nav class="navbar bg-warning">
           <div class="contenedor">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" th:href="@{/}">
               <img th:src="@{/images/logo_longdrink-removebg-preview.png}" alt="Logo" width="120" height="54" class="d-inline-block align-text-top">
             </a>
-            <a th:href="@{/login}">
+            <p class="d-inline-block" th:text="${'Alumno: ' + nombreAlum}">dsadas</p>
+
+          </div>
+          <div class="contenedor">
+            <a th:href="@{/}">
               <i class="bi bi-person-circle"></i>
             </a>
           </div>
+
         </nav>
     </section>
     <script src="/src/main/resources/static/js/bootstrap.js"></script>
