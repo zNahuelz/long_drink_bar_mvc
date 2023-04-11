@@ -9,6 +9,7 @@ public class AdminPanelController {
     
     @GetMapping(value="/adminPanel")
     public String adminPanel(Model m){
+        m.addAttribute("titulo", "Long Drink Bar - Administración");
         return "adminPanel";
     }
 }
