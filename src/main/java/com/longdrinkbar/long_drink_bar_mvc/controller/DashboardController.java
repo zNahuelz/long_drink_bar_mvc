@@ -16,6 +16,7 @@ import com.longdrinkbar.long_drink_bar_mvc.entity.Alumno;
 import com.longdrinkbar.long_drink_bar_mvc.entity.Curso;
 import com.longdrinkbar.long_drink_bar_mvc.entity.Inscripcion;
 import com.longdrinkbar.long_drink_bar_mvc.entity.Usuario;
+import com.longdrinkbar.long_drink_bar_mvc.model.AlumnoTransporter;
 import com.longdrinkbar.long_drink_bar_mvc.model.UserTransporter;
 @Controller
 public class DashboardController {
@@ -25,8 +26,6 @@ public class DashboardController {
     @Autowired
     private IInscripcionDAO inscripcionDAO;
 
-    @Autowired
-    private AlumnoDAOImp alumDAO;
 
     @RequestMapping(value="dashboard/home", method = {RequestMethod.GET, RequestMethod.POST}) //Check.
     public ModelAndView listarCursos(Model m){
@@ -35,12 +34,17 @@ public class DashboardController {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("dashboard-cursos");
         Usuario usuario = new Usuario();
-        if(UserTransporter.checkDisponible()){
+        Alumno a = new Alumno();
+        if(UserTransporter.checkDisponible() && AlumnoTransporter.checkDisponible()){
             usuario = UserTransporter.getUsuario();
+            a = AlumnoTransporter.getAlumno();
         } 
         
+        System.out.println(usuario);
+        System.out.println(a);
+
         //Obtener objeto alumno para extraer nombre.
-        Alumno a = alumDAO.buscarAlumno(usuario.getId());
+        // Alumno a = alumDAO.buscarAlumno(usuario.getId());
         
         //Llenar Array con ID's de cursos inscritos.
         List<Integer> test = new ArrayList<Integer>();
@@ -64,8 +68,11 @@ public class DashboardController {
         m.addAttribute("cursos",cursosGenerales); //Listado de cursos -> Excluye a los que ya se inscribio.
         m.addAttribute("nombreAlum",a.getNombre()+" "+a.getApPaterno()); //Nombre - Apellido.
         m.addAttribute("datosUsuario", usuario); //Objeto Usuario.
+        UserTransporter.setUsuario(usuario);
+        AlumnoTransporter.setAlumno(a);
 
         return mav;
     }
 
+    
 }

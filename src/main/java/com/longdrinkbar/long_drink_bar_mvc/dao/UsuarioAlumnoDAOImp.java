@@ -15,7 +15,7 @@ public class UsuarioAlumnoDAOImp implements IUsuarioAlumnoDAO {
     @Override
     public UsuarioAlumno buscarNombre(int id_usr) {
         try{
-            return em.createQuery("select i from usuario_alumno i where id_usuario = "+id_usr,UsuarioAlumno.class).getSingleResult();
+            return em.createQuery("select i from UsuarioAlumno i where id_usuario = "+id_usr,UsuarioAlumno.class).getSingleResult();
         }
         catch(Exception ex){
             return null;

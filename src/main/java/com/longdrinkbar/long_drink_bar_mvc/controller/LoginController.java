@@ -8,8 +8,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.longdrinkbar.long_drink_bar_mvc.dao.IAlumnoDAO;
+import com.longdrinkbar.long_drink_bar_mvc.dao.IUsuarioAlumnoDAO;
 import com.longdrinkbar.long_drink_bar_mvc.dao.IUsuarioDAO;
+import com.longdrinkbar.long_drink_bar_mvc.entity.Alumno;
 import com.longdrinkbar.long_drink_bar_mvc.entity.Usuario;
+import com.longdrinkbar.long_drink_bar_mvc.entity.UsuarioAlumno;
+import com.longdrinkbar.long_drink_bar_mvc.model.AlumnoTransporter;
 import com.longdrinkbar.long_drink_bar_mvc.model.UserTransporter;
 
 //import com.longdrinkbar.long_drink_bar_mvc.entity.Usuario;
@@ -19,6 +24,12 @@ public class LoginController {
 
     @Autowired
     private IUsuarioDAO usuarioDAO;
+
+    @Autowired
+    private IUsuarioAlumnoDAO usuarioAlumnoDAO;
+
+    @Autowired
+    private IAlumnoDAO alumnoDAO;
 
 
     @GetMapping(value="/login")
@@ -36,6 +47,8 @@ public class LoginController {
             return error;
         }
         else{
+            UsuarioAlumno asrAl = usuarioAlumnoDAO.buscarNombre(user.getId());
+            Alumno al = alumnoDAO.buscarAlumno(asrAl.getId_alumno().getId());
             String retorno = "";
             if (user.getPermisos() == 0){
                 retorno = "adminPanel"; //OK
@@ -53,6 +66,7 @@ public class LoginController {
             ModelAndView mav = new ModelAndView(new RedirectView(retorno));
             mav.addObject("obtenerUsuario",user);
             UserTransporter.setUsuario(user);
+            AlumnoTransporter.setAlumno(al);
             return mav;
         }
     }

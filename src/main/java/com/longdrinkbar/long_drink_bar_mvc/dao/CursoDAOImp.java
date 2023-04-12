@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.longdrinkbar.long_drink_bar_mvc.entity.Curso;
+import com.longdrinkbar.long_drink_bar_mvc.entity.Turnos;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -56,6 +57,25 @@ public class CursoDAOImp implements ICursoDAO {
         }
     }
 
+    @Override
+    public Curso obtenerCursoNombre(String nombre) {
+        try{
+            return em.createQuery("select i from Curso i where id = "+nombre, Curso.class).getSingleResult();
+        }
+        catch(Exception ex){
+            return null;
+        }
+    }
 
-    
+    @Override
+    @Transactional(readOnly = true)
+    @SuppressWarnings("unchecked")
+    public List<Turnos> listarTurnos() {
+        try{
+            return em.createQuery("from Turnos").getResultList();
+        }
+        catch(Exception ex){
+            return null;
+        }
+    }
 }

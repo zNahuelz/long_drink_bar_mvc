@@ -14,10 +14,10 @@
     <h1 th:text="${datosUsuario.nombre_usuario}"></h1>
     <!-- <h1 th:text="${nombreEstudiante}"></h1> -->
     <div class="container">
-        <h2 class="borde" th:text="${subt2}"></h2>
-
-        <div class="card-container">
-            <div class="card" th:each="i:${tusCursos}">
+        
+        <div class="card-container" th:if="${tusCursos.size()>0}">
+            <h2 class="borde" th:text="${subt2}">AA</h2>
+            <div class="card" th:each="i:${tusCursos}" >
                 <div class="card-header bg-dark bg-gradient">
                     <h5 class=" text-white" th:text="${i.nombre}"></h5>
                     <i class="bi bi-cup-straw"></i>
@@ -29,10 +29,12 @@
                     <a href="#" class="btn btn-danger">Retirarse</a>
                   </div>
                 </div>
-            </div>
+              </div>
+        </div>
             <br>
-            <h2 class="borde" th:text="${subt}"></h2>
-            <div class="card-container">
+            
+            <div class="card-container" th:if="${tusCursos.size()==0}">
+               <h2 class="borde" th:text="${subt}"></h2>
                 <div class="card" th:each="c:${cursos}">
                     <div class="card-header bg-success bg-gradient">
                         <h5 class=" text-white" th:text="${c.nombre}"></h5>
@@ -41,12 +43,12 @@
                     <div class="card-body">
                       <span class="card-text" th:text="${c.descripcion}"></span>
                       <div>
-                        <a href="#" class="btn btn-primary">Inscribirse</a>
+                        <a th:href="@{/inscripcion}" class="btn btn-primary">Inscribirse</a>
                         <a href="#" class="btn btn-secondary">Más Información</a>
                       </div>
                     </div>
                 </div>
-        </div>
+            </div>
     </div>
     <section class="footer" th:replace="./fragments/footer"></section>
     <script src="/src/main/resources/static/js/bootstrap.js"></script>
