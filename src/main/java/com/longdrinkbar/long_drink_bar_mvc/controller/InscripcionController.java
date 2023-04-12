@@ -19,7 +19,7 @@ import com.longdrinkbar.long_drink_bar_mvc.dao.ICursoDAO;
 import com.longdrinkbar.long_drink_bar_mvc.dao.IInscripcionDAO;
 import com.longdrinkbar.long_drink_bar_mvc.entity.Alumno;
 import com.longdrinkbar.long_drink_bar_mvc.entity.AuxInscripcion;
-import com.longdrinkbar.long_drink_bar_mvc.entity.Inscripcion;
+
 import com.longdrinkbar.long_drink_bar_mvc.entity.Curso;
 import com.longdrinkbar.long_drink_bar_mvc.model.AlumnoTransporter;
 

@@ -7,7 +7,6 @@ import java.util.Map;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 
-import com.longdrinkbar.long_drink_bar_mvc.entity.Alumno;
 import com.longdrinkbar.long_drink_bar_mvc.entity.Curso;
 import com.lowagie.text.Document;
 import com.lowagie.text.Element;
@@ -15,12 +14,9 @@ import com.lowagie.text.Font;
 import com.lowagie.text.FontFactory;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.Phrase;
-import com.lowagie.text.pdf.PdfCell;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
-import com.lowagie.text.pdf.PdfTable;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.RGBColor;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

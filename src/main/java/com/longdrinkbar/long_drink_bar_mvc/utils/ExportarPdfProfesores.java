@@ -7,19 +7,16 @@ import java.util.Map;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 
-import com.longdrinkbar.long_drink_bar_mvc.entity.Alumno;
+import com.longdrinkbar.long_drink_bar_mvc.entity.Profesor;
 import com.lowagie.text.Document;
 import com.lowagie.text.Element;
 import com.lowagie.text.Font;
 import com.lowagie.text.FontFactory;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.Phrase;
-import com.lowagie.text.pdf.PdfCell;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
-import com.lowagie.text.pdf.PdfTable;
 import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.pdf.RGBColor;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -30,7 +27,7 @@ public class ExportarPdfProfesores extends AbstractPdfView{
     @Override
     protected void buildPdfDocument(Map<String, Object> model, Document document, PdfWriter writer, HttpServletRequest request, HttpServletResponse response) throws Exception {
         @SuppressWarnings("unchecked")
-        List<Alumno> profesores = (List<Alumno>)model.get("profesores");
+        List<Profesor> profesores = (List<Profesor>)model.get("profesores");
         
         Font fuenteTitulo = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 30, Color.white);
         Font fuenteTituloColumnas = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 15, Color.white);
@@ -102,8 +99,8 @@ public class ExportarPdfProfesores extends AbstractPdfView{
             profesor -> {
                 tablaProfesores.addCell(((Integer)profesor.getId()).toString());
                 tablaProfesores.addCell(profesor.getNombre());
-                tablaProfesores.addCell(profesor.getApPaterno());
-                tablaProfesores.addCell(profesor.getApMaterno());
+                tablaProfesores.addCell(profesor.getAp_paterno());
+                tablaProfesores.addCell(profesor.getAp_materno());
                 tablaProfesores.addCell(profesor.getEmail());
                 tablaProfesores.addCell(profesor.getDni());
             }
