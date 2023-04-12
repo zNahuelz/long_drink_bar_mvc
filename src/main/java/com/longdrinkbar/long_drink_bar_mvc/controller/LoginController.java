@@ -47,14 +47,15 @@ public class LoginController {
             return error;
         }
         else{
-            UsuarioAlumno asrAl = usuarioAlumnoDAO.buscarNombre(user.getId());
-            Alumno al = alumnoDAO.buscarAlumno(asrAl.getId_alumno().getId());
             String retorno = "";
             if (user.getPermisos() == 0){
                 retorno = "adminPanel"; //OK
             }
             else if (user.getPermisos() == 1){
                 retorno = "/dashboard/home"; //Ok
+                UsuarioAlumno asrAl = usuarioAlumnoDAO.buscarNombre(user.getId());
+                Alumno al = alumnoDAO.buscarAlumno(asrAl.getId_alumno().getId());
+                AlumnoTransporter.setAlumno(al);
             }
             else if (user.getPermisos() == 2){
                 retorno = "profesorPanel"; //OK
@@ -66,7 +67,6 @@ public class LoginController {
             ModelAndView mav = new ModelAndView(new RedirectView(retorno));
             mav.addObject("obtenerUsuario",user);
             UserTransporter.setUsuario(user);
-            AlumnoTransporter.setAlumno(al);
             return mav;
         }
     }
