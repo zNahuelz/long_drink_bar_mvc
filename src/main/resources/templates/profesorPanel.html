@@ -9,7 +9,98 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
+    <section th:replace="./fragments/navbarDocente"></section>
+    <br/>
     <h1>Profesor Panel.</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-9">
+                <div class="container" ></div>
+                <div class="card border-dark mb-3">
+                    <div class="card-header text-center">LISTADO DE CURSOS</div>
+                    <!-- Cartas -->
+                    <!-- Visual: Automatizar luego. -->
+                    <div class="container">
+                        <br/>
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <div class="col">
+                            <div class="card border-success" >
+                                <div class="card-header">Curso N° 1</div>
+                                <div class="card-body text-dark">
+                                    <h5 class="card-title">//Nombre Curso//</h5>
+                                    <p class="card-text">INICIO: XXXX FIN: XXXXX HORARIO: XXXXX FRECUENCIA: XXXXXX</p>
+                                  </div>
+                              </div>
+                        </div>
+                        <div class="col">
+                            <div class="card border-success" >
+                                <div class="card-header">Curso N° 2</div>
+                                <div class="card-body text-dark">
+                                    <h5 class="card-title">//Nombre Curso//</h5>
+                                    <p class="card-text">INICIO: XXXX FIN: XXXXX HORARIO: XXXXX FRECUENCIA: XXXXXX</p>
+                                  </div>
+                              </div>
+                        </div>
+                        <div class="col">
+                            <div class="card border-success" >
+                                <div class="card-header">Curso N° 3</div>
+                                <div class="card-body text-dark">
+                                    <h5 class="card-title">//Nombre Curso//</h5>
+                                    <p class="card-text">INICIO: XXXX FIN: XXXXX HORARIO: XXXXX FRECUENCIA: XXXXXX</p>
+                                  </div>
+                              </div>
+                        </div>
+                        <div class="col">
+                            <div class="card border-success" >
+                                <div class="card-header">Curso N° 4</div>
+                                <div class="card-body text-dark">
+                                  <h5 class="card-title">//Nombre Curso//</h5>
+                                  <p class="card-text">INICIO: XXXX FIN: XXXXX HORARIO: XXXXX FRECUENCIA: XXXXXX</p>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col">
+                            <div class="card border-success" >
+                                <div class="card-header">Curso N° 5</div>
+                                <div class="card-body text-dark">
+                                  <h5 class="card-title">//Nombre Curso//</h5>
+                                  <p class="card-text">INICIO: XXXX FIN: XXXXX HORARIO: XXXXX FRECUENCIA: XXXXXX</p>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col">
+                            <div class="card border-success" >
+                                <div class="card-header">Curso N° 6</div>
+                                <div class="card-body text-dark">
+                                  <h5 class="card-title">//Nombre Curso//</h5>
+                                  <p class="card-text">INICIO: XXXX FIN: XXXXX HORARIO: XXXXX FRECUENCIA: XXXXXX</p>
+                                </div>
+                              </div>
+                        </div>
+                      </div>
+                      <br/>
+                    <!-- cartas end -->
+                </div>
+                  </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-success" style="width: 18rem;">
+                    <div class="card-header bg-success text-center">
+                      HORARIO
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Lunes</li>
+                      <li class="list-group-item">Martes</li>
+                      <li class="list-group-item">Miercoles</li>
+                      <li class="list-group-item">Jueves</li>
+                      <li class="list-group-item">Viernes</li>
+                      <li class="list-group-item">Sabado</li>
+                      <li class="list-group-item">Domingo</li>
+                    </ul>
+                  </div>
+            </div>
+        </div>
+    </div>
     <script src="/src/main/resources/static/js/bootstrap.js"></script>
 </body>
 </html>
