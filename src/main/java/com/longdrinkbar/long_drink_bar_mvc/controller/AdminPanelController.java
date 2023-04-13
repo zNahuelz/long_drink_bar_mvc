@@ -48,7 +48,7 @@ public class AdminPanelController {
     // }
     @GetMapping(value="/adminPanel")
     public String adminPanel(Model m){
-        m.addAttribute("titulo", "Long Drink Bar - Administración");
+        m.addAttribute("titulo", "Administración - Reportes");
         m.addAttribute("cursos",cursoDAO.listarCursos());
         m.addAttribute("alumnos",alumnoDAO.listarAlumnos());
         m.addAttribute("profesores",profesorDAO.listarProfesor());
