@@ -1,0 +1,4 @@
+.temario ul, .costo ul, .frecuencia ul, .turnos ul{
+    list-style: none;
+    padding: 0;
+}
