@@ -38,7 +38,7 @@ public class InscripcionDAOImp implements IInscripcionDAO {
     @Override
     @Transactional
     public void guardarInscripcion(AuxInscripcion aux) {
-        Inscripcion ins = new Inscripcion(aux.getCurso(), aux.getAlumno(), aux.getFecha_final(), aux.getFecha_inicio(), aux.getFecha_final(), aux.getEn_curso());
+        Inscripcion ins = new Inscripcion(aux.getCurso(), aux.getAlumno(), aux.getFecha_inscripcion(), aux.getFecha_inicio(), aux.getFecha_final(), aux.getEn_curso());
         em.persist(ins);
     }
     

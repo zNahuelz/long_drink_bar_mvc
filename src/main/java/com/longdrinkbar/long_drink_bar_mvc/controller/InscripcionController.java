@@ -56,13 +56,14 @@ public class InscripcionController {
             if (AlumnoTransporter.checkDisponible()){
                 alumno = AlumnoTransporter.getAlumno();
             }
+            
 
             Calendar calendario = Calendar.getInstance();
-            SimpleDateFormat formato = new SimpleDateFormat("yyyy/mm/dd");
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
             Date fechaInscripcion = Date.from(Instant.now());
             Date fechaInicio = formato.parse(inicio);
             calendario.setTime(fechaInicio);
-            calendario.add(Calendar.MONTH, 6);
+            calendario.add(Calendar.MONTH, ((int)cur.getDuracion()));
 
             AuxInscripcion ins = new AuxInscripcion(cur, alumno, fechaInscripcion, fechaInicio, calendario.getTime(), Byte.parseByte("1"));
 

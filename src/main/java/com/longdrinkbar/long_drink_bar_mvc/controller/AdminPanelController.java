@@ -38,14 +38,6 @@ public class AdminPanelController {
     @Autowired
     private IProfesorDAO profesorDAO;
     
-    // @RequestMapping(value="/adminPanel")
-    // public String adminPanel(Model m){
-    //     m.addAttribute("titulo", "Long Drink Bar - Administración");
-    //     m.addAttribute("cursos",cursoDAO.listarCursos());
-    //     m.addAttribute("alumnos",alumnoDAO.listarAlumnos());
-    //     m.addAttribute("profesores",profesorDAO.listarProfesor());
-    //     return "/adminPanel";
-    // }
     @GetMapping(value="/adminPanel")
     public String adminPanel(Model m){
         m.addAttribute("titulo", "Long Drink Bar - Administración");
@@ -54,6 +46,8 @@ public class AdminPanelController {
         m.addAttribute("profesores",profesorDAO.listarProfesor());
         return "/adminPanel";
     }
+
+    //Ruteos para exportacion a PDF
     @GetMapping(value="/adminPanel/alumnos")
     public String adminPanelAlumnos(Model m){
         m.addAttribute("alumnos",alumnoDAO.listarAlumnos());
@@ -71,6 +65,7 @@ public class AdminPanelController {
         m.addAttribute("cursos",cursoDAO.listarCursos());
         return "/adminPanel/cursos";
     }
+    //Finalizacion de ruteos
 
     //Exportar Docentes a CSV.
     @GetMapping(value="/exp/docentes/csv")
