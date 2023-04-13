@@ -18,15 +18,15 @@
         <h1 class="h3 mb-3 fw-normal">Registro de Usuario</h1>
           <!---Usuario(DNI), nombre, apellido, email, passw-->
         <div class="form-floating">
-          <input type="text" class="form-control" id="nombre" name="nombre" th:name="nombre" required pattern="[A-Za-z]+" title="Solamente se pueden ingresar Letras minúsculas y mayúsculas">
+          <input type="text" class="form-control" id="nombre" name="nombre" th:name="nombre" required pattern="[A-Za-z]+{0,20}" title="Solamente se pueden ingresar Letras minúsculas y mayúsculas. Con un máximo de 20 caracteres">
           <label for="nombre">Nombre</label>
         </div>
         <div class="form-floating mt-2">
-          <input type="text" class="form-control" id="apellidoP" name="apellidoP" th:name="ap_paterno" required pattern="[A-Za-z]+" title="Solamente se pueden ingresar Letras minúsculas y mayúsculas">
+          <input type="text" class="form-control" id="apellidoP" name="apellidoP" th:name="ap_paterno" required pattern="[A-Za-z]+{0,20}" title="Solamente se pueden ingresar Letras minúsculas y mayúsculas. Con un máximo de 20 caracteres">
           <label for="apellidoP">Apellido Paterno</label>
         </div>
         <div class="form-floating mt-2">
-          <input type="text" class="form-control" id="apellidoM" name="apellidoM" th:name="ap_materno" required pattern="[A-Za-z]+" title="Solamente se pueden ingresar Letras minúsculas y mayúsculas">
+          <input type="text" class="form-control" id="apellidoM" name="apellidoM" th:name="ap_materno" required pattern="[A-Za-z]+{0,20}" title="Solamente se pueden ingresar Letras minúsculas y mayúsculas. Con un máximo de 20 caracteres">
           <label for="apellidoM">Apellido Materno</label>
         </div>
         <div class="form-floating mt-2">
