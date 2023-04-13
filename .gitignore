@@ -97,3 +97,4 @@ build/
 *.3dm
 *.max
 src/main/resources/application.properties
+src/main/resources/application.properties

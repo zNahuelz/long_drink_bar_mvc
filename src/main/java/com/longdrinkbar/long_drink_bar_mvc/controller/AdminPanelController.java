@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import com.longdrinkbar.long_drink_bar_mvc.dao.IAlumnoDAO;
 import com.longdrinkbar.long_drink_bar_mvc.dao.ICursoDAO;
@@ -40,7 +40,7 @@ public class AdminPanelController {
     
     @GetMapping(value="/adminPanel")
     public String adminPanel(Model m){
-        m.addAttribute("titulo", "Long Drink Bar - Administración");
+        m.addAttribute("titulo", "Administración - Reportes");
         m.addAttribute("cursos",cursoDAO.listarCursos());
         m.addAttribute("alumnos",alumnoDAO.listarAlumnos());
         m.addAttribute("profesores",profesorDAO.listarProfesor());
