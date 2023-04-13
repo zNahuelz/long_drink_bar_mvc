@@ -36,7 +36,7 @@ public class RegisterController {
     ){
         String mensajeError = "";
         Alumno chkExistencia = alumDAO.comprobarExistencia(dni, email);
-        if (chkExistencia == null){
+        if (chkExistencia == null && dni.length() == 8){
             m.addAttribute("titulo","REGISTRO EXITOSO!");
             AuxRegistro clase = new AuxRegistro(nombre, contrasena, ap_materno, ap_paterno, dni, email, (byte)1);
             String username = clase.generarUsername();
@@ -46,6 +46,9 @@ public class RegisterController {
             return "registro-exitoso";
         }
         else{
+            if (dni.length() != 8){
+                mensajeError = "Error! El DNI ingresado no es válido!";
+            }
             if (chkExistencia.getDni().equals(dni)){
                 mensajeError = "Error! El DNI ingresado ya se encuentra registrado. Debe recuperar sus credenciales.";
             }

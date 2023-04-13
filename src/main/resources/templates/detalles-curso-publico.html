@@ -46,10 +46,8 @@
             </div>
             <div class="col-3 turnos">
                 <h2>Turnos</h2>
-                <ul>
-                    <li>Mañana</li>
-                    <li>Tarde</li>
-                    <li>Noche</li>
+                <ul th:each="t : ${ turnos}">
+                    <li th:text="${t.nombre}"></li>
                 </ul>
             </div>
         </div>
