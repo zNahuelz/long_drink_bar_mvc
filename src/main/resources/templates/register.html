@@ -18,19 +18,19 @@
         <h1 class="h3 mb-3 fw-normal">Registro de Usuario</h1>
           <!---Usuario(DNI), nombre, apellido, email, passw-->
         <div class="form-floating">
-          <input type="text" class="form-control" id="nombre" name="nombre" th:name="nombre" required pattern="[A-Za-z]+{0,20}" title="Solamente se pueden ingresar Letras minúsculas y mayúsculas. Con un máximo de 20 caracteres">
+          <input type="text" class="form-control" id="nombre" name="nombre" th:name="nombre" required pattern="[A-Za-z]+" maxlength="20" title="Solamente se pueden ingresar Letras minúsculas y mayúsculas. Con un máximo de 20 caracteres">
           <label for="nombre">Nombre</label>
         </div>
         <div class="form-floating mt-2">
-          <input type="text" class="form-control" id="apellidoP" name="apellidoP" th:name="ap_paterno" required pattern="[A-Za-z]+{0,20}" title="Solamente se pueden ingresar Letras minúsculas y mayúsculas. Con un máximo de 20 caracteres">
+          <input type="text" class="form-control" id="apellidoP" name="apellidoP" th:name="ap_paterno" required pattern="[A-Za-z]+" maxlength="20" title="Solamente se pueden ingresar Letras minúsculas y mayúsculas. Con un máximo de 20 caracteres">
           <label for="apellidoP">Apellido Paterno</label>
         </div>
         <div class="form-floating mt-2">
-          <input type="text" class="form-control" id="apellidoM" name="apellidoM" th:name="ap_materno" required pattern="[A-Za-z]+{0,20}" title="Solamente se pueden ingresar Letras minúsculas y mayúsculas. Con un máximo de 20 caracteres">
+          <input type="text" class="form-control" id="apellidoM" name="apellidoM" th:name="ap_materno" required pattern="[A-Za-z]+" maxlength="20" title="Solamente se pueden ingresar Letras minúsculas y mayúsculas. Con un máximo de 20 caracteres">
           <label for="apellidoM">Apellido Materno</label>
         </div>
         <div class="form-floating mt-2">
-          <input type="text" class="form-control" id="dni" name="dni" th:name="dni" required pattern="[0-9]+{0,8}" title="Solamente se pueden un máximo de 8 dígitos numéricos">
+          <input type="text" class="form-control" id="dni" name="dni" th:name="dni" required pattern="[0-9]+" maxlength="8" title="Solamente se pueden un máximo de 8 dígitos numéricos">
           <label for="dni">DNI</label>
         </div>
         <div class="form-floating mt-2">
