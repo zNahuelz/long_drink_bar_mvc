@@ -1,0 +1,8 @@
+.fechas, .turnos{
+    margin: 16px 0;
+    display: flex;
+}
+
+.fechas p, .turnos p{
+    margin: 0 12px;
+}

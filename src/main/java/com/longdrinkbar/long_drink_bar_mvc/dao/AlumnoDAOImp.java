@@ -32,7 +32,7 @@ public class AlumnoDAOImp implements IAlumnoDAO{
     @Override
     @Transactional
     public void guardar(AuxRegistro aux) {
-        Alumno alum = new Alumno(aux.getNombre(),aux.getAp_materno(),aux.getAp_paterno(),aux.getEmail(),aux.getDni());
+        Alumno alum = new Alumno(aux.getId(), aux.getNombre(),aux.getAp_materno(),aux.getAp_paterno(),aux.getEmail(),aux.getDni());
 
         if(alum.getId() != 0 && alum.getId() > 0){
             em.merge(alum);

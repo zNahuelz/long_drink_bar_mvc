@@ -19,5 +19,5 @@ public interface ICursoDAO {
     public List<Curso> cursosAlumno(List<Integer> lista);
 
     //Obtener listado de todos los turnos segun curso
-    public List<Turnos> listarTurnos();
+    public List<Turnos> listarTurnos(int id_curso);
 }

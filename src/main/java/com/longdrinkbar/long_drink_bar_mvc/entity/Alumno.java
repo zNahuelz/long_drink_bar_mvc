@@ -3,6 +3,7 @@ package com.longdrinkbar.long_drink_bar_mvc.entity;
 
 import java.io.Serializable;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,7 +31,8 @@ public class Alumno implements Serializable{
     public Alumno() {
     }
 
-    public Alumno(String nombre, String apMaterno, String apPaterno, String email, String dni) {
+    public Alumno(int id, String nombre, String apMaterno, String apPaterno, String email, String dni) {
+        this.id = id;
         this.nombre = nombre;
         this.apMaterno = apMaterno;
         this.apPaterno = apPaterno;

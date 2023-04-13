@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.longdrinkbar.long_drink_bar_mvc.entity.Alumno;
 import com.longdrinkbar.long_drink_bar_mvc.entity.AuxInscripcion;
+import com.longdrinkbar.long_drink_bar_mvc.entity.Curso;
 import com.longdrinkbar.long_drink_bar_mvc.entity.Inscripcion;
 
 import jakarta.persistence.EntityManager;
@@ -38,7 +40,7 @@ public class InscripcionDAOImp implements IInscripcionDAO {
     @Override
     @Transactional
     public void guardarInscripcion(AuxInscripcion aux) {
-        Inscripcion ins = new Inscripcion(aux.getCurso(), aux.getAlumno(), aux.getFecha_inscripcion(), aux.getFecha_inicio(), aux.getFecha_final(), aux.getEn_curso());
+        Inscripcion ins = new Inscripcion(aux.getId_curso(), aux.getId_alumno(), aux.getFecha_inscripcion(), aux.getFecha_inicio(), aux.getFecha_final(), aux.getEn_curso());
         em.persist(ins);
     }
     

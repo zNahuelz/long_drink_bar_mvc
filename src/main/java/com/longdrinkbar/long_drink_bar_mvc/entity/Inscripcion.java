@@ -3,6 +3,7 @@ package com.longdrinkbar.long_drink_bar_mvc.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;

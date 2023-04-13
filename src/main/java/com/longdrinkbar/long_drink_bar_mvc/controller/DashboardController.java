@@ -35,13 +35,12 @@ public class DashboardController {
         mav.setViewName("dashboard-cursos");
         Usuario usuario = new Usuario();
         Alumno a = new Alumno();
+
+    
         if(UserTransporter.checkDisponible() && AlumnoTransporter.checkDisponible()){
             usuario = UserTransporter.getUsuario();
             a = AlumnoTransporter.getAlumno();
         } 
-        
-        System.out.println(usuario);
-        System.out.println(a);
 
         //Obtener objeto alumno para extraer nombre.
         // Alumno a = alumDAO.buscarAlumno(usuario.getId());

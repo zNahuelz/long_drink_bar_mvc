@@ -70,9 +70,9 @@ public class CursoDAOImp implements ICursoDAO {
     @Override
     @Transactional(readOnly = true)
     @SuppressWarnings("unchecked")
-    public List<Turnos> listarTurnos() {
+    public List<Turnos> listarTurnos(int id_curso) {
         try{
-            return em.createQuery("from Turnos").getResultList();
+            return em.createQuery("select i from Turnos i where id_curso = "+id_curso).getResultList();
         }
         catch(Exception ex){
             return null;

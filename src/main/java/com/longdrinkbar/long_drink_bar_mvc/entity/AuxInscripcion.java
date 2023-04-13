@@ -3,19 +3,22 @@ package com.longdrinkbar.long_drink_bar_mvc.entity;
 import java.util.Date;
 
 public class AuxInscripcion {
-    private Curso curso;
-    private Alumno alumno;
+    private Curso id_curso;
+
+    private Alumno id_alumno;
+
     private Date fecha_inscripcion;
     private Date fecha_inicio;
     private Date fecha_final;
     private Byte en_curso;
 
-    
 
-    public AuxInscripcion(Curso curso, Alumno alumno, Date fecha_inscripcion, Date fecha_inicio, Date fecha_final,
+
+    
+    public AuxInscripcion(Curso id_curso, Alumno id_alumno, Date fecha_inscripcion, Date fecha_inicio, Date fecha_final,
             Byte en_curso) {
-        this.curso = curso;
-        this.alumno = alumno;
+        this.id_curso = id_curso;
+        this.id_alumno = id_alumno;
         this.fecha_inscripcion = fecha_inscripcion;
         this.fecha_inicio = fecha_inicio;
         this.fecha_final = fecha_final;
@@ -24,19 +27,18 @@ public class AuxInscripcion {
 
     public AuxInscripcion() {
     }
-
     
-    public Curso getCurso() {
-        return curso;
+    public Curso getId_curso() {
+        return id_curso;
     }
-    public void setCurso(Curso curso) {
-        this.curso = curso;
+    public void setId_curso(Curso id_curso) {
+        this.id_curso = id_curso;
     }
-    public Alumno getAlumno() {
-        return alumno;
+    public Alumno getId_alumno() {
+        return id_alumno;
     }
-    public void setAlumno(Alumno alumno) {
-        this.alumno = alumno;
+    public void setId_alumno(Alumno id_alumno) {
+        this.id_alumno = id_alumno;
     }
     public Date getFecha_inscripcion() {
         return fecha_inscripcion;

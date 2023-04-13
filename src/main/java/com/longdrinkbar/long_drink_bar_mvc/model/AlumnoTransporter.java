@@ -17,6 +17,6 @@ public class AlumnoTransporter {
 
     public static Alumno getAlumno(){
         disponible = false;
-        return alumno;
+        return AlumnoTransporter.alumno;
     }
 }

@@ -31,7 +31,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO{
     @Override
     @Transactional
     public void registrar(AuxRegistro aux) {
-        Alumno alum = new Alumno(aux.getNombre(),aux.getAp_materno(),aux.getAp_paterno(),aux.getEmail(),aux.getDni());
+        Alumno alum = new Alumno(aux.getId(), aux.getNombre(),aux.getAp_materno(),aux.getAp_paterno(),aux.getEmail(),aux.getDni());
         Usuario usr = new Usuario(aux.generarUsername(),aux.getContrasena(),aux.getPermisos());
         UsuarioAlumno usrAlum = new UsuarioAlumno(usr,alum);
         em.persist(alum);
