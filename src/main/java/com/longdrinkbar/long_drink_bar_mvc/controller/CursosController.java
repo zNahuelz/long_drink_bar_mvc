@@ -27,6 +27,7 @@ public class CursosController {
         return "cursos-publicos";
     }
 
+    
     @GetMapping(value="/cursos/{id}")
     ModelAndView mostrarDetalles(@PathVariable(value="id") String id, Map<String, Object> model){
         
