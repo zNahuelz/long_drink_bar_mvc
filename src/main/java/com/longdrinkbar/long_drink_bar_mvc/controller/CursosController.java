@@ -32,10 +32,10 @@ public class CursosController {
         
         Curso curso = cursoDAO.obtenerCurso(Integer.parseInt(id));
 
-        System.out.println(curso.getNombre());
+        //System.out.println(curso.getNombre());
 
         ModelAndView mv = new ModelAndView(new RedirectView("detalles-curso-publico"));
-
+        mv.setViewName("detalles-curso-publico");
         mv.addObject("curso", curso);
         mv.addObject("turnos", cursoDAO.listarTurnos(curso.getId()));
 

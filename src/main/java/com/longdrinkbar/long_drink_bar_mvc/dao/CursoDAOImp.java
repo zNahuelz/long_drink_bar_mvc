@@ -34,7 +34,16 @@ public class CursoDAOImp implements ICursoDAO {
     @Transactional
     public Curso obtenerCurso(int id) {
         try{
-            return em.createQuery("select i from curso i where id_curso = "+id, Curso.class).getSingleResult();
+            //return em.createQuery("select i from curso i where id = "+id, Curso.class).getSingleResult();
+            //Si este metodo funciona, lo arreglo Cristian. Sino, no se quien lo arreglo.
+            Curso c = em.find(Curso.class,id);
+            if (c != null){
+                return c;
+            }
+            else{
+                return null;
+            }
+            
         }
         catch (Exception ex){
             return null;
