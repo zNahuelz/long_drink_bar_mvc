@@ -16,7 +16,7 @@
     <a th:href="@{/dashboard/home}"><i class="bi bi-caret-left flecha"></i></a>
     
     <div class="container contenedor">
-        <div class="row">
+        <div class="row" th:if="${fecha != null}">
             <div class="col-6 temario">
                 <h2>Siguiente clase</h2>
                 
@@ -35,9 +35,42 @@
                 <a th:href="@{/inscripcion/turnos}" class="btn btn-outline-success enlace">Inscribirse</a>
             </figure>
         </div>
-        <!-- <div class="row">
+        <div class="row" th:if="${fecha == null}">
+            <div class="col-3">
+                <h2>Temario</h2>
+                <ul th:each="cla : ${clases}">
+                    <li>
+                        <i class="bi bi-check"></i><p th:text="${cla.nombre}"></p>
+                    </li>
+                </ul>
+                <div class="turnos">
+                    <h2>Turnos</h2>
+                    <ul th:each="t : ${ turnos}">
+                        <li >
+                            <i class="bi bi-check"></i><p th:text="${t.nombre}"></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-3 costo">
+                <h2>Costo</h2>
+                <ul>
+                    <li >
+                        <i class="bi bi-check"></i><p th:text="'Matricula: S/. 100'"></p>
+                    </li>
+                    <li>
+                        <i class="bi bi-check"></i><p th:text="'Mensualidad: S./ ' + ${curso.costo / curso.duracion}"></p>
+                    </li>
+                </ul>
+            </div>
             
-        </div> -->
+            <figure class="col-6 d-flex flex-column align-items-center imagen">
+                <img th:src="@{/images/} + ${profesor.foto}" alt="Imagen del profesor" class="imagenProfesor">
+                <figcaption>Curso dictado por: <span th:text="${profesor.nombre} + ' ' + ${profesor.ap_paterno} + ' ' + ${profesor.ap_materno}"></span></figcaption>
+                <a th:href="@{/login}" class="btn btn-outline-primary enlace">Inscribirse</a>
+            </figure>
+            
+        </div>
     </div>
     
 
