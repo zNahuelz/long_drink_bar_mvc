@@ -27,7 +27,7 @@ public class CursosController {
     //Listar Cursos...
     @GetMapping(value={"/cursos", "/curso"})
     public String cursos(Model m){
-        m.addAttribute("titulo", "Long Drink Bar - Cursos");
+        m.addAttribute("titulo", "Cursos");
         m.addAttribute("subtitulo","Nuestros Cursos");
         m.addAttribute("cursos",cursoDAO.listarCursos());
         return "cursos-publicos";

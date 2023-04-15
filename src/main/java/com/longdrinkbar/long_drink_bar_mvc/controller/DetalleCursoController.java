@@ -38,10 +38,13 @@ public class DetalleCursoController {
     @Autowired
     private IInscripcionDAO inscripcionDAO;
 
-    @RequestMapping(value="/detalleCurso")
+    @RequestMapping(value="/detalleCurso/certificado")
     public String mostrar(Model m){
         
-        return "detalles-curso-alumno";
+        Alumno al = AlumnoTransporter.getAlumno();
+        m.addAttribute("alumno", al);
+        AlumnoTransporter.setAlumno(al);
+        return "/detalleCurso/certificado";
     }
 
     @GetMapping(value="/detalleCurso/{id}")
@@ -52,6 +55,8 @@ public class DetalleCursoController {
         ProfesorCurso profC= cursoDAO.obtenProfesor(curso.getId());
         Inscripcion ins = inscripcionDAO.buscarInscripcion(al.getId());
         Profesor prof = profesorDAO.buscarProfesor(profC.getId_profesor().getId());
+        AlumnoTransporter.setAlumno(al);
+
 
         Calendar calendario = Calendar.getInstance();
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
@@ -68,17 +73,19 @@ public class DetalleCursoController {
         mv.addObject("fecha", formato.format(calendario.getTime()));
         mv.addObject("profesor", prof);
         mv.addObject("nombreAlum",al.getNombre()+" "+al.getApPaterno());
-        AlumnoTransporter.setAlumno(al);
+        
         return mv;
     }
 
     @GetMapping(value="/detalleCursoP/{id}")
-    ModelAndView mostrarDetallesP(@PathVariable(value="id") String id, Map<String, Object> model){
+    ModelAndView mostrarDetallesDeAlumnoSinInscribir(@PathVariable(value="id") String id, Map<String, Object> model){
         
         Alumno al = AlumnoTransporter.getAlumno();
         Curso curso = cursoDAO.obtenerCurso(Integer.parseInt(id));
         ProfesorCurso profC= cursoDAO.obtenProfesor(curso.getId());
         Profesor prof = profesorDAO.buscarProfesor(profC.getId_profesor().getId());
+        AlumnoTransporter.setAlumno(al);
+
 
         //System.out.println(curso.getNombre());
 
@@ -89,8 +96,9 @@ public class DetalleCursoController {
         mv.addObject("clases", cursoDAO.listarClases(curso.getId()));
         mv.addObject("profesor", prof);
         mv.addObject("nombreAlum",al.getNombre()+" "+al.getApPaterno());
-        AlumnoTransporter.setAlumno(al);
 
         return mv;
     }
+    
+
 }

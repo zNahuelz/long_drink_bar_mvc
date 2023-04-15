@@ -32,7 +32,8 @@
             <figure class="col-6 d-flex flex-column align-items-center imagen">
                 <img th:src="@{/images/} + ${profesor.foto}" alt="Imagen del profesor" class="imagenProfesor">
                 <figcaption>Curso dictado por: <span th:text="${profesor.nombre} + ' ' + ${profesor.ap_paterno} + ' ' + ${profesor.ap_materno}"></span></figcaption>
-                <a th:href="@{/inscripcion/turnos}" class="btn btn-outline-success enlace">Inscribirse</a>
+                <!-- <a th:href="@{/inscripcion/turnos}" class="btn btn-outline-success enlace">Inscribirse</a> -->
+                <a th:href="@{/detalleCurso/certificado(format=pdf)}" class="btn btn-outline-success enlace"><i class="bi bi-mortarboard-fill"></i> Descargar Certificado</a>
             </figure>
         </div>
         <div class="row" th:if="${fecha == null}">
@@ -67,7 +68,7 @@
             <figure class="col-6 d-flex flex-column align-items-center imagen">
                 <img th:src="@{/images/} + ${profesor.foto}" alt="Imagen del profesor" class="imagenProfesor">
                 <figcaption>Curso dictado por: <span th:text="${profesor.nombre} + ' ' + ${profesor.ap_paterno} + ' ' + ${profesor.ap_materno}"></span></figcaption>
-                <a th:href="@{/login}" class="btn btn-outline-primary enlace">Inscribirse</a>
+                <a th:href="@{/inscripcion/turnos}" class="btn btn-outline-success enlace">Inscribirse</a>
             </figure>
             
         </div>
