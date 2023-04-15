@@ -24,5 +24,22 @@ public class ProfesorDAOImp implements IProfesorDAO {
 
         return em.createQuery("from Profesor").getResultList();
     }
+
+    @Override
+    @Transactional
+    public Profesor buscarProfesor(int id) {
+        try{
+            Profesor p = em.find(Profesor.class,id);
+            if (p != null){
+                return p;
+            }
+            else{
+                return null;
+            }
+        }
+        catch(Exception ex){
+            return null;
+        }
+    }
     
 }

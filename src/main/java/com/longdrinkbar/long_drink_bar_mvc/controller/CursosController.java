@@ -12,14 +12,20 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.longdrinkbar.long_drink_bar_mvc.dao.ICursoDAO;
+import com.longdrinkbar.long_drink_bar_mvc.dao.IProfesorDAO;
 import com.longdrinkbar.long_drink_bar_mvc.entity.Curso;
+import com.longdrinkbar.long_drink_bar_mvc.entity.Profesor;
+import com.longdrinkbar.long_drink_bar_mvc.entity.ProfesorCurso;
 @Controller
 public class CursosController {
     @Autowired
     private ICursoDAO cursoDAO;
 
+    @Autowired
+    private IProfesorDAO profesorDAO;
+
     //Listar Cursos...
-    @RequestMapping(value="/cursos")
+    @GetMapping(value={"/cursos", "/curso"})
     public String cursos(Model m){
         m.addAttribute("titulo", "Long Drink Bar - Cursos");
         m.addAttribute("subtitulo","Nuestros Cursos");
@@ -32,6 +38,8 @@ public class CursosController {
     ModelAndView mostrarDetalles(@PathVariable(value="id") String id, Map<String, Object> model){
         
         Curso curso = cursoDAO.obtenerCurso(Integer.parseInt(id));
+        ProfesorCurso profC= cursoDAO.obtenProfesor(curso.getId());
+        Profesor prof = profesorDAO.buscarProfesor(profC.getId_profesor().getId());
 
         //System.out.println(curso.getNombre());
 
@@ -39,6 +47,8 @@ public class CursosController {
         mv.setViewName("detalles-curso-publico");
         mv.addObject("curso", curso);
         mv.addObject("turnos", cursoDAO.listarTurnos(curso.getId()));
+        mv.addObject("clases", cursoDAO.listarClases(curso.getId()));
+        mv.addObject("profesor", prof);
 
         return mv;
     }

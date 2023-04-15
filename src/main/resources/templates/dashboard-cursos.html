@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="${titulo}">TUS CURSOS</title>
     <link rel="stylesheet" th:href="@{/css/cursos.css}">
+    <link rel="stylesheet" href="/src/main/resources/static/css/bootstrap.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
-    <section th:replace="./fragments/navbarAlum"></section>
+    <section th:replace="fragments/navbarAlum"></section>
     <!--<h1 th:text="${datosUsuario.nombre_usuario}"></h1> --> 
     <!-- <h1 th:text="${nombreEstudiante}"></h1> -->
     <div class="container">
@@ -25,7 +26,7 @@
                 <div class="card-body">
                   <span class="card-text" th:text="${i.descripcion}"></span>
                   <div>
-                    <a href="#" class="btn btn-primary">Información</a>
+                    <a th:href="@{/detalleCurso/} + ${i.id}" class="btn btn-primary">Información</a>
                     <a href="#" class="btn btn-danger">Retirarse</a>
                   </div>
                 </div>
@@ -44,13 +45,13 @@
                       <span class="card-text" th:text="${c.descripcion}"></span>
                       <div>
                         <a th:href="@{/inscripcion/turnos}" class="btn btn-primary">Inscribirse</a>
-                        <a href="#" class="btn btn-secondary">Más Información</a>
+                        <a th:href="@{/detalleCurso}" class="btn btn-secondary">Más Información</a>
                       </div>
                     </div>
                 </div>
             </div>
     </div>
-    <section class="footer" th:replace="./fragments/footer"></section>
+    <section class="footer" th:replace="./fragments/footer :: contenedor-inferior"></section>
     <script src="/src/main/resources/static/js/bootstrap.js"></script>
 </body>
 </html>

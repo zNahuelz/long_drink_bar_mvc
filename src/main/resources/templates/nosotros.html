@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
-    <section th:replace="./fragments/navbar"></section>
+    <section th:replace="./fragments/navbar  :: barra-superior"></section>
     
     <div class="container">
         <h1 class="text-center" th:text="${tituloPagina}"></h1>
@@ -52,7 +52,7 @@
         </div>
     </div>
 
-    <section th:replace="./fragments/footer"></section>
+    <section th:replace="./fragments/footer :: contenedor-inferior"></section>
     <script src="/src/main/resources/static/js/bootstrap.js"></script>
 </body>
 </html>

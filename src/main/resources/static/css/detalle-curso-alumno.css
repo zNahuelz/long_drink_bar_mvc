@@ -12,8 +12,8 @@ body{
 i.flecha{
     margin-top: 20px;
     margin-left: 0px;
-    font-size: 30px;
-    color: blue;
+    font-size: 20px;
+    color: green;
 }
  
 .contenedor{
@@ -28,6 +28,11 @@ i.flecha{
     margin: 0;
 }
 
+strong span{
+    /* display: inline-block; */
+    margin-left: 4px;
+}
+
 .turnos{
     margin-top: 20px;
 }
@@ -40,7 +45,7 @@ li{
 
 li i {
     font-size: 20px;
-    color: blue;
+    color: green;
     padding: 0 4px;
 }
 
@@ -68,7 +73,7 @@ figcaption span{
 }
 
 .enlace{
-    margin-top: 12px;
+    margin: 16px 0;    
 }
 
 .pie{
