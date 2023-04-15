@@ -1,8 +1,8 @@
-/* html,
+ html,
 body {
 height: 100%;
 }
-
+/*
 body {
 display: flex;
 align-items: center;
@@ -34,6 +34,19 @@ border-top-right-radius: 0;
 }
 NO REDONDEAR SUPERIOR.
 */
+
+.datos{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.datos label:last-child{
+  position: absolute;
+  left: 240px;
+}
 
 .sinFormato{
 text-decoration: none !important;
@@ -81,4 +94,17 @@ form{
   height: 40px;
   font-size: 15px;
   text-align: center;
+}
+
+.navbar{
+  height: 70px;
+}
+
+.pie{
+  position: absolute;
+  bottom: 10px;
+}
+
+.pie-texto{
+  margin-top: 16px;
 }

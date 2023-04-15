@@ -46,7 +46,7 @@ body{
 }
 
 .redes-sociales-contenedor{
-    margin-top: 50px;
+    margin: 50px 0;
 }
 
 .redes-sociales-contenedor h3{
@@ -85,4 +85,13 @@ body{
 
 .redes-sociales-iconos a:hover i{
     color: white;
+}
+
+.navbar{
+    height: 70px;
+}
+
+
+.pie-texto{
+    margin-top: 16px;
 }
