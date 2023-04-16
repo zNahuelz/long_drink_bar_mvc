@@ -8,4 +8,7 @@ public interface IProfesorDAO {
     
     //Listar docentes.
     public List<Profesor> listarProfesor();
+
+    //Buscar profesor segun id
+    public Profesor buscarProfesor(int id);
 }

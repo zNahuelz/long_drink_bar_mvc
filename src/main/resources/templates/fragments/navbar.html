@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/src/main/resources/static/css/bootstrap.css">
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
     <section th:fragment="barra-superior">
         <!---CONTENIDO DE NAVBAR GENERICA PARA TODAS PÁGINAS QUE NO REQUIERAN LOGIN.-->
-        <nav class="navbar navbar-expand-lg bg-primary" aria-label="Thirteenth navbar example">
+        <nav class="navbar navbar-expand-lg bg-primary bg-gradient" aria-label="Thirteenth navbar example">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -27,7 +28,8 @@
               <a class="nav-link text-white" th:href="@{/nosotros}">Nosotros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" th:href="@{/cursos}">Cursos</a>
+              <a class="nav-link text-white" th:href="@{/curso}">Cursos</a>
+
             </li>
             <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown" aria-expanded="false">Desplegable</a>
@@ -39,8 +41,8 @@
             </li> -->
           </ul>
           <div class="col-md-3 text-end">
-            <a th:href="@{login}"><button type="button" class="btn btn-outline-danger me-2">Iniciar Sesión</button></a>
-            <a th:href="@{register}"><button type="button" class="btn btn-danger">Registrarse</button></a>
+            <a th:href="@{/login}"><button type="button" class="btn btn-outline-danger me-2">Iniciar Sesión</button></a>
+            <a th:href="@{/register}"><button type="button" class="btn btn-danger">Registrarse</button></a>
           </div>
           
         </div>

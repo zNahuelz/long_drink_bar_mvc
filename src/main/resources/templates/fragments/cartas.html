@@ -13,12 +13,11 @@
 <body>
     
     <div class="cartas row" th:fragment="cartas-alumnos">
-        <h3 class="text-center cartas-titulo" th:text="${tituloAlumnos}"></h3>
-        <div th:each="alumno : ${alumnos}" class="col-xm-12 col-sm-12 col-md-6 col-lg-4 listado-cartas">
+        <div th:each="profesor : ${profesores}" class="col-xm-12 col-sm-12 col-md-6 col-lg-4 listado-cartas">
             <div class="card" style="width: 18rem;">
-                <img th:src="${alumno.foto}" class="card-img-top" alt="...">
+                <img th:src="@{/images/} + ${profesor.foto}" class="card-img-top" alt="...">
                 <div class="card-body bg-primary text-white cuerpo-carta">
-                    <p class="card-text" th:text="${alumno.nombre}+' '+${alumno.apellido}"></p>
+                    <p class="card-text carta-texto" th:text="${profesor.nombre}+' '+${profesor.ap_paterno} + ' ' + ${profesor.ap_materno}"></p>
                 </div>
             </div>
         </div>

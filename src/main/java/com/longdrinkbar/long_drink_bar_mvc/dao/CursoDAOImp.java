@@ -7,7 +7,10 @@ import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.longdrinkbar.long_drink_bar_mvc.entity.Clases;
 import com.longdrinkbar.long_drink_bar_mvc.entity.Curso;
+import com.longdrinkbar.long_drink_bar_mvc.entity.Profesor;
+import com.longdrinkbar.long_drink_bar_mvc.entity.ProfesorCurso;
 import com.longdrinkbar.long_drink_bar_mvc.entity.Turnos;
 
 import jakarta.persistence.EntityManager;
@@ -34,7 +37,16 @@ public class CursoDAOImp implements ICursoDAO {
     @Transactional
     public Curso obtenerCurso(int id) {
         try{
-            return em.createQuery("select i from curso i where id_curso = "+id, Curso.class).getSingleResult();
+            //return em.createQuery("select i from curso i where id = "+id, Curso.class).getSingleResult();
+            //Si este metodo funciona, lo arreglo Cristian. Sino, no se quien lo arreglo.
+            Curso c = em.find(Curso.class,id);
+            if (c != null){
+                return c;
+            }
+            else{
+                return null;
+            }
+            
         }
         catch (Exception ex){
             return null;
@@ -78,4 +90,28 @@ public class CursoDAOImp implements ICursoDAO {
             return null;
         }
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    @SuppressWarnings("unchecked")
+    public List<Clases> listarClases(int id_curso) {
+        try{
+            return em.createQuery("select i from Clases i where id_curso = "+id_curso).getResultList();
+        }
+        catch(Exception ex){
+            return null;
+        }
+    }
+
+    @Override
+    public ProfesorCurso obtenProfesor(int id_curso) {
+        try{
+            return em.createQuery("select i from ProfesorCurso i where id_curso = "+id_curso, ProfesorCurso.class).getSingleResult();
+        }
+        catch(Exception ex){
+            return null;
+        }
+    }
+
+    
 }

@@ -23,14 +23,18 @@ public class Profesor implements Serializable{
     private String ap_materno;
     private String email;
     private String dni;
+    private String foto;
     
-    public Profesor(int id, String nombre, String ap_paterno, String ap_materno, String email, String dni) {
+    
+
+    public Profesor(int id, String nombre, String ap_paterno, String ap_materno, String email, String dni, String foto) {
         this.id = id;
         this.nombre = nombre;
         this.ap_paterno = ap_paterno;
         this.ap_materno = ap_materno;
         this.email = email;
         this.dni = dni;
+        this.foto = foto;
     }
 
     public Profesor(){
@@ -76,5 +80,13 @@ public class Profesor implements Serializable{
     
     public static Long getSerialversionuid() {
         return serialVersionUID;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }

@@ -7,3 +7,16 @@
   .botones button{
     margin-top: 20px;
   }
+
+.navbar{
+  height: 70px;
+}
+
+.pie{
+  position: absolute;
+  bottom: 10px;
+}
+
+.pie-texto{
+  margin-top: 16px;
+}

@@ -39,6 +39,17 @@ public class InscripcionDAOImp implements IInscripcionDAO {
 
     @Override
     @Transactional
+    public Inscripcion buscarInscripcion(int id_alum) {
+        try{
+            return em.createQuery("from Inscripcion where id_alumno ="+id_alum,Inscripcion.class).getSingleResult();
+        }
+        catch(Exception ex){
+            return null;
+        }
+    }
+
+    @Override
+    @Transactional
     public void guardarInscripcion(AuxInscripcion aux) {
         Inscripcion ins = new Inscripcion(aux.getId_curso(), aux.getId_alumno(), aux.getFecha_inscripcion(), aux.getFecha_inicio(), aux.getFecha_final(), aux.getEn_curso());
         em.persist(ins);

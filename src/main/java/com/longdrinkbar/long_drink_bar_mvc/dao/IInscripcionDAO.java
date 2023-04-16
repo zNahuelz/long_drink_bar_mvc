@@ -12,5 +12,7 @@ public interface IInscripcionDAO {
 
     public List<Inscripcion> obtenerInscripcion(int id_alum);
     
+    public Inscripcion buscarInscripcion(int id_alum);
+
     public void guardarInscripcion(AuxInscripcion aux);
 }
