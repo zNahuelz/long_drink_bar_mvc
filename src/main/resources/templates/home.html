@@ -10,7 +10,7 @@
     <link rel="stylesheet" th:href="@{/css/home.css}">
 </head>
 <body>
-    <section th:replace="./fragments/navbar :: barra-superior"></section>
+    <section th:replace="./fragments/navbar"></section>
     
     <div class="container contenedor">
         <h1 class="text-center" th:text="${tituloPagina}"></h1>
@@ -30,6 +30,7 @@
 
         <div class="container contenedor">
             <h1 class="text-center">Nuestros Profesores</h1>
+            <br/>
             <div th:if="${profesores.size()>0}" class="container" th:replace="./fragments/cartas :: cartas-alumnos"></div>
         </div>
 
