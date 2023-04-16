@@ -1,7 +1,84 @@
+html{
+    font-size: 62.5%;
+}
+
+
+
 .navbar{
     height: 70px;
 }
 
+.navbar div a {
+    font-size: 1.6rem;
+
+}
+
+.contenedor{
+    margin: 48px auto 0 auto;
+}
+
+.contenedor .fila{
+    margin: 28px 0;
+}
+
+.fila{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fila div {
+    display: flex;
+    justify-content: center;
+}
+
+.fila div p{
+    font-size: 2rem;
+    font-weight: 400;
+    margin-top: 16px;
+    text-align: center;
+}
+
+.fila img{
+    align-content: center;
+    width: 70%;
+    height: 70%;
+    border-radius: 10px;
+}
+
+.cartas{
+    display: flex;
+    justify-content: center;
+    margin: 28px 0;
+}
+
+.cartas img{
+    width: 286px;
+    height: 390px;
+    /* box-shadow: 14px 4px 16px -4px rgba(0,0,0,0.75); */
+    /* border-radius: 0.375rem; */
+}
+
+.carta-texto{
+    font-size: 1.6rem;
+}
+
+.cuerpo-carta{
+    width: 286px;
+    border-bottom-left-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+    box-shadow: 1px 14px 9px -4px rgba(0,0,0,0.75);
+}
+
+.cartas-titulo{
+    margin-bottom: 30px;
+}
+
+.listado-cartas div:first-child{
+    margin-left: 50px;
+}
+
 .pie-texto{
+    font-size: 1.6rem;
     margin-top: 16px;
 }
