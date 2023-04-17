@@ -58,13 +58,16 @@ public class IngresosController {
 
             //Mensajes: Correcto, error y falta de alumnos en el mes ingresado.
             m.addAttribute("mensaje", "El ingreso aproximado para el mes seleccionado es de: S./ " + Float.toString(montoTotal));
+            m.addAttribute("cantAlum","Cantidad de Alumnos: "+dineros.size());
             if(montoTotal <= -0){
                 m.addAttribute("mensaje","");
+                m.addAttribute("cantAlum", "");
                 m.addAttribute("advertencia","Oops! No se registran ingresos en el mes seleccionado! - Intente con otro mes.");
             }
 
         } catch (ParseException e) {
             m.addAttribute("mensaje", "");
+            m.addAttribute("cantAlum", "");
             m.addAttribute("advertencia","Error! Debe seleccionar una fecha.");
         }
         
